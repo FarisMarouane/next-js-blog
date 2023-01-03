@@ -1,0 +1,16 @@
+.aside {
+  display: flex;
+  margin-bottom: 3.5rem;
+}
+
+.description {
+  max-width: 310px;
+}
+
+.profile_pic {
+  margin-right: 0.875rem;
+  margin-bottom: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}

@@ -5,6 +5,12 @@
   margin-bottom: 2.625rem;
 }
 
+.link {
+  box-shadow: none;
+  text-decoration: none;
+  color: var(--textNormal);
+}
+
 .title {
   font-size: 1.98818rem;
   line-height: 2.625rem;

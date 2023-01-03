@@ -9,7 +9,9 @@ const font = Montserrat({ subsets: ['latin'], weight: '900' });
 const Header = ({ title }) => (
   <header className={`${styles.header} ${font.className}`}>
     <h1 className={styles.title}>
-      <Link href="/">{title}</Link>
+      <Link className={styles.link} href="/">
+        {title}
+      </Link>
     </h1>
     <ToggleInput />
   </header>
