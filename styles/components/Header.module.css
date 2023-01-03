@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.625rem;
+}
+
+.title {
+  font-size: 1.98818rem;
+  line-height: 2.625rem;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: 900;
+}
