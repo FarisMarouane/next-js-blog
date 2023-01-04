@@ -1,0 +1,13 @@
+.footer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  margin-top: 4.375rem;
+  padding-top: 1.75rem;
+  bottom: 30px;
+  justify-content: space-between;
+}
+
+.resume {
+  margin-left: auto;
+}
