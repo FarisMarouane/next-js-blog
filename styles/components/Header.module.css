@@ -8,13 +8,25 @@
 .link {
   box-shadow: none;
   text-decoration: none;
-  color: var(--textNormal);
 }
 
-.title {
+.primaryTitle {
   font-size: 1.98818rem;
   line-height: 2.625rem;
   margin-bottom: 0px;
   margin-top: 0px;
   font-weight: 900;
+  color: var(--textTitle);
+}
+
+.primaryTitle a {
+  color: var(--textTitle);
+}
+
+.tertiaryTitle {
+  line-height: 2.625rem;
+}
+
+.tertiaryTitle a {
+  color: rgb(255, 167, 196);
 }
