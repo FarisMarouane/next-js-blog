@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { Montserrat } from '@next/font/google';
-import { getArticleFromSlug } from '../../utils/mdx';
+import { getAllArticles, getArticleFromSlug } from '../../utils/mdx';
 import markdownToHtml from '../../utils/markdownToHtml';
 import PostBody from '../../components/PostBody';
 import styles from '../../styles/components/Article.module.css';
@@ -17,8 +17,10 @@ export async function getStaticProps({ params }) {
 }
 
 export function getStaticPaths() {
+  const articles = getAllArticles();
+
   return {
-    paths: [{ params: { slug: 'example' } }, { params: { slug: 'example2' } }],
+    paths: articles.map(({ slug }) => ({ params: { slug } })),
     fallback: false,
   };
 }
