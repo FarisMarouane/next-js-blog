@@ -14,7 +14,14 @@ const Aside = () => (
       />
       <p className={styles.description}>
         Personal blog by{' '}
-        <a href="https://github.com/FarisMarouane/">Marouane Faris</a>.
+        <a
+          href="https://github.com/FarisMarouane/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Marouane Faris
+        </a>
+        .
         <br />
         Ideas expressed on this blog are stricly my own, and not those of
         potential employers.

@@ -1,18 +1,22 @@
+import { Merriweather } from '@next/font/google';
 import '../styles/globals.css';
 import '../styles/components/Toggle.css';
-import { Merriweather } from '@next/font/google';
+import Layout from '../components/Layout';
 
 const font = Merriweather({ subsets: ['latin'], weight: '400' });
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <Layout>
       <style jsx global>{`
         html {
           font-family: ${font.style.fontFamily};
+          font-weight: 400;
+          word-wrap: break-word;
+          font-kerning: normal;
         }
       `}</style>
-      <Component {...pageProps} />;
-    </>
+      <Component {...pageProps} />
+    </Layout>
   );
 }

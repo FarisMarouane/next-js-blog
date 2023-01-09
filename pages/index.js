@@ -1,10 +1,17 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Header from '../components/Header';
 import Aside from '../components/Aside';
 import Footer from '../components/Footer';
+import { getAllArticles } from '../utils/mdx';
+import ArticlePreview from '../components/ArticlePreview';
 
-export default function Home() {
+export function getStaticProps() {
+  const allArticles = getAllArticles();
+  return {
+    props: { allArticles },
+  };
+}
+
+export default function Home({ allArticles }) {
   return (
     <>
       <Head>
@@ -13,12 +20,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.layout}>
-        <Header title="Marouane Faris" />
-        <Aside />
-        <main></main>
-        <Footer />
-      </div>
+      <Aside />
+      <main>
+        {allArticles.map((article) => (
+          <ArticlePreview
+            key={article.id}
+            title={article.title}
+            readingTime={article.readingTime}
+            publicationDate={article.date}
+            description={article.metaDesc}
+            slug={article.slug}
+          />
+        ))}
+      </main>
+      <Footer />
     </>
   );
 }
