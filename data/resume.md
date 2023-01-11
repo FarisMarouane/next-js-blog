@@ -22,8 +22,9 @@ I also like working with inspiring colleagues that help me grow as a software en
 - Storybook
 - Docker
 
+&nbsp;
 
 Although I specialise in *frontend* web developement, I also have working knowledge in backend developement as I have tinkered with Node JS and know the theoritical foundations of Computer Networking.
 
 
-<!-- [Linkedin Profile](https://www.linkedin.com/in/marouane-faris-1514b970/) -->
+[Linkedin Profile](https://www.linkedin.com/in/marouane-faris-1514b970/)
