@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import dayjs from 'dayjs';
 import { Montserrat } from '@next/font/google';
 import { getAllArticles, getArticleFromSlug } from '../../utils/mdx';
@@ -27,19 +28,26 @@ export function getStaticPaths() {
 
 const Article = ({ articleContent, frontmatter }) => {
   return (
-    <main>
-      <article>
-        <header>
-          <h1 className={font.className}>{frontmatter.title}</h1>
-          <small className={styles.small}>
-            {dayjs(frontmatter.publicationDate).format('MMMM D, YYYY')}
-            &nbsp;&bull;&nbsp;
-            {frontmatter.readingTime}
-          </small>
-        </header>
-        <PostBody content={articleContent} />
-      </article>
-    </main>
+    <>
+      <Head>
+        <meta name="author" content="Marouane Faris" />
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.metaDesc} />
+      </Head>
+      <main>
+        <article>
+          <header>
+            <h1 className={font.className}>{frontmatter.title}</h1>
+            <small className={styles.small}>
+              {dayjs(frontmatter.publicationDate).format('MMMM D, YYYY')}
+              &nbsp;&bull;&nbsp;
+              {frontmatter.readingTime}
+            </small>
+          </header>
+          <PostBody content={articleContent} />
+        </article>
+      </main>
+    </>
   );
 };
 

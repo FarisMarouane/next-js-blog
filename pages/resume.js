@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs';
+import Head from 'next/head';
 import matter from 'gray-matter';
 import { Montserrat } from '@next/font/google';
 import markdownToHtml from '../utils/markdownToHtml';
@@ -23,11 +24,17 @@ export async function getStaticProps() {
 
 const Article = ({ articleContent }) => {
   return (
-    <main>
-      <article>
-        <PostBody content={articleContent} />
-      </article>
-    </main>
+    <>
+      <Head>
+        <title>Resume</title>
+        <meta name="description" content="Marouane Faris' resume" />
+      </Head>
+      <main>
+        <article>
+          <PostBody content={articleContent} />
+        </article>
+      </main>
+    </>
   );
 };
 
