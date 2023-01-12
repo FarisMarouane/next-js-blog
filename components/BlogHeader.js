@@ -9,6 +9,10 @@ const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
 const BlogHeader = ({ title }) => {
   const { pathname } = useRouter();
+  const toggleDarkMode = () => {
+    document.querySelector('body').classList.toggle('dark');
+  };
+
   return (
     <header className={`${styles.header} ${font.className}`}>
       {pathname === '/' ? (
@@ -24,7 +28,7 @@ const BlogHeader = ({ title }) => {
           </Link>
         </h3>
       )}
-      <ToggleInput />
+      <ToggleInput onChange={toggleDarkMode} />
     </header>
   );
 };
