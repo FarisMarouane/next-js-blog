@@ -36,7 +36,7 @@ const BlogHeader = ({ title }) => {
       ) : (
         <h3 className={`${styles.tertiaryTitle}`}>
           <Link className={styles.link} href="/">
-            Overreacted
+            {title}
           </Link>
         </h3>
       )}
