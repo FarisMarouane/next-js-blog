@@ -23,6 +23,12 @@ export default function Home({ allArticles }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="light dark" />
+        <meta property="og:title" content="Marouane Faris' personnal blog" />
+        <meta
+          property="og:description"
+          content="Marouane Faris' Blog. Made with Next JS"
+        />
+        <meta property="og:image" content="/photo_linkedin.jpeg" />
         <link rel="icon" href="/favicon.png" type="image/png" />
       </Head>
       <Aside />

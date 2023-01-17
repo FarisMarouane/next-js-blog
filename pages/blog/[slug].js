@@ -30,9 +30,11 @@ const Article = ({ articleContent, frontmatter }) => {
   return (
     <>
       <Head>
-        <meta name="author" content="Marouane Faris" />
         <title>{frontmatter.title}</title>
+        <meta name="author" content="Marouane Faris" />
         <meta name="description" content={frontmatter.metaDesc} />
+        <meta property="og:title" content={`${frontmatter.title}`} />
+        <meta property="og:description" content={`${frontmatter.metaDesc}`} />
       </Head>
       <main>
         <article>

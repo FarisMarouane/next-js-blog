@@ -28,6 +28,9 @@ const Article = ({ articleContent }) => {
       <Head>
         <title>Resume</title>
         <meta name="description" content="Marouane Faris' resume" />
+        <meta property="og:title" content="Marouane Faris Resume" />
+        <meta property="og:description" content="Marouane Faris Resume" />
+        <meta property="og:image" content="/photo_linkedin.jpeg" />
       </Head>
       <main>
         <article>
