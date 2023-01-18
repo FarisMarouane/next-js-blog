@@ -14,9 +14,9 @@ const ArticlePreview = ({
   return (
     <>
       <header>
-        <h3 className={`${styles.title} ${font.className}`}>
+        <h2 className={`${styles.title} ${font.className}`}>
           <Link href={`/blog/${slug}`}>{title}</Link>
-        </h3>
+        </h2>
         <small>
           {publicationDate}&nbsp;&bull;&nbsp;{readingTime}
         </small>
