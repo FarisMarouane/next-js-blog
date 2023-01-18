@@ -2,12 +2,10 @@ import path from 'path';
 import fs from 'fs';
 import Head from 'next/head';
 import matter from 'gray-matter';
-import { Montserrat } from '@next/font/google';
 import markdownToHtml from '../utils/markdownToHtml';
 import PostBody from '../components/PostBody';
 
-const resumeFileName = 'resume';
-const font = Montserrat({ subsets: ['latin'], weight: '900' });
+const resumeFileName = 'about_me';
 
 export async function getStaticProps() {
   const resumeDir = path.join(
@@ -26,10 +24,10 @@ const Article = ({ articleContent }) => {
   return (
     <>
       <Head>
-        <title>Resume</title>
-        <meta name="description" content="Marouane Faris' resume" />
-        <meta property="og:title" content="Marouane Faris Resume" />
-        <meta property="og:description" content="Marouane Faris Resume" />
+        <title>About me</title>
+        <meta name="description" content="Marouane Faris' about me" />
+        <meta property="og:title" content="Marouane Faris About me" />
+        <meta property="og:description" content="Marouane Faris About me" />
         <meta property="og:image" content="/photo_linkedin.jpeg" />
       </Head>
       <main>

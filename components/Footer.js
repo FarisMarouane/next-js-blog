@@ -26,8 +26,8 @@ const Footer = () => (
     >
       Stackoverflow
     </a>
-    <Link className={styles.resume} href="/resume">
-      Resume
+    <Link className={styles.resume} href="/about_me">
+      About me
     </Link>
   </footer>
 );
