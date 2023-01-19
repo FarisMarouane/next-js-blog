@@ -12,7 +12,7 @@ const Footer = () => (
     </a>{' '}
     &nbsp; &bull; &nbsp;
     <a
-      href="https://github.com/FarisMarouane/"
+      href="https://github.com/FarisMarouane/next-js-blog"
       target="_blank"
       rel="noreferrer"
     >
