@@ -12,7 +12,7 @@ const ArticlePreview = ({
   slug,
 }) => {
   return (
-    <>
+    <article>
       <header>
         <h2 className={`${styles.title} ${font.className}`}>
           <Link href={`/blog/${slug}`}>{title}</Link>
@@ -22,7 +22,7 @@ const ArticlePreview = ({
         </small>
       </header>
       <p>{description}</p>
-    </>
+    </article>
   );
 };
 
