@@ -1,9 +1,12 @@
 .footer {
-  width: 100%;
+  position: absolute;
+  bottom: 15px;
   display: flex;
-  margin-top: 4.5rem;
-  padding-top: 1.8rem;
   justify-content: space-between;
+  padding: 1.8rem 1.5rem 0;
+  margin: 4.5rem auto 0;
+  left: 0;
+  right: 0;
 }
 
 .resume {
