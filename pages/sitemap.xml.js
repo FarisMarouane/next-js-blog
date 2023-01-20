@@ -1,4 +1,4 @@
-import { getAllArticles } from '../utils/mdx';
+import { getAllArticlesMetadata } from '../utils/mdx';
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -27,7 +27,7 @@ function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-  const posts = getAllArticles();
+  const posts = getAllArticlesMetadata();
 
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(posts);
