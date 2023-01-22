@@ -1,14 +1,23 @@
 import Head from 'next/head';
 import dayjs from 'dayjs';
 import { Montserrat } from '@next/font/google';
-import { getAllArticlesMetadata, getArticleFromSlug } from '../../utils/mdx';
+import {
+  IFrontmatterType,
+  getAllArticlesMetadata,
+  getArticleFromSlug,
+} from '../../utils/mdx';
 import markdownToHtml from '../../utils/markdownToHtml';
 import PostBody from '../../components/PostBody';
 import styles from '../../styles/components/Article.module.css';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
-export async function getStaticProps({ params }) {
+interface IArticleProps {
+  articleContent: string;
+  frontmatter: IFrontmatterType;
+}
+
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const { content, frontmatter } = getArticleFromSlug(slug);
 
@@ -26,7 +35,7 @@ export function getStaticPaths() {
   };
 }
 
-const Article = ({ articleContent, frontmatter }) => {
+const Article = ({ articleContent, frontmatter }: IArticleProps) => {
   return (
     <>
       <Head>

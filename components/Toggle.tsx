@@ -2,7 +2,12 @@ import Toggle from 'react-toggle';
 
 import Image from 'next/image';
 
-const ToggleInput = ({ onChange, checked = 'false' }) => (
+interface IToggleInputProps {
+  onChange: () => void;
+  checked: boolean;
+}
+
+const ToggleInput = ({ onChange, checked = false }: IToggleInputProps) => (
   <Toggle
     checked={checked}
     icons={{

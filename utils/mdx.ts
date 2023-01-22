@@ -3,15 +3,29 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 
-interface ArticleMetadata {
-  [key: string]: any;
+export interface IFrontmatterType {
+  id: number;
+  date: string;
+  title: string;
+  metatitle: string;
+  metaDesc: string;
+  socialImage?: string;
+  [key: string]: string | number | undefined;
+}
+
+export interface IArticleMetaData extends IFrontmatterType {
   slug: string;
   readingTime: string;
 }
 
+interface IArticle {
+  content: string;
+  frontmatter: Omit<IArticleMetaData, 'id' | 'metatitle'>;
+}
+
 const articlesPath = path.join(process.cwd(), 'data/blog');
 
-export function getArticleFromSlug(slug: string) {
+export function getArticleFromSlug(slug: string): IArticle {
   const articleDir = path.join(articlesPath, `${slug}.md`);
   const source = fs.readFileSync(articleDir);
   const { content, data } = matter(source);
@@ -20,33 +34,30 @@ export function getArticleFromSlug(slug: string) {
     content,
     frontmatter: {
       slug,
-      excerpt: data.metaDesc,
+      metaDesc: data.metaDesc,
       title: data.title,
-      publicationDate: data.date,
+      date: data.date,
       readingTime: readingTime(source.toString()).text,
       ...data,
     },
   };
 }
 
-export function getAllArticlesMetadata() {
+export function getAllArticlesMetadata(): IArticleMetaData[] {
   const articles = fs.readdirSync(path.join(process.cwd(), 'data/blog'));
 
   return articles.reduce(
-    (
-      allArticlesMetadata: ArticleMetadata[],
-      currentArticleMetadata: string,
-    ) => {
+    (allArticlesMetadata: IArticleMetaData[], currentArticle: string) => {
       const source = fs.readFileSync(
-        path.join(process.cwd(), 'data/blog', currentArticleMetadata),
+        path.join(process.cwd(), 'data/blog', currentArticle),
         'utf-8',
       );
       const { data } = matter(source);
 
       return [
         {
-          ...data,
-          slug: currentArticleMetadata.replace('.md', ''),
+          ...(data as IFrontmatterType),
+          slug: currentArticle.replace('.md', ''),
           readingTime: readingTime(source).text,
         },
         ...allArticlesMetadata,

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { useContext } from 'react';
-import { ThemeContext } from './ContextProvider';
+import { useContext, Context } from 'react';
+import { ThemeContext, ThemeContextType, ThemeType } from './ContextProvider';
 import styles from '../styles/components/Header.module.css';
 import Link from 'next/link';
 
@@ -9,19 +9,23 @@ import ToggleInput from './Toggle';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
-const BlogHeader = ({ title }) => {
+const BlogHeader = ({ title }: { title: string }) => {
   const { pathname } = useRouter();
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleDarkMode = () => {
-    const classList = document.querySelector('body').classList;
+    const bodyElement = document.querySelector('body');
 
-    if (classList.contains('dark')) {
-      classList.remove('dark');
-      setTheme('light');
-    } else {
-      classList.add('dark');
-      setTheme('dark');
+    if (bodyElement) {
+      const classList = bodyElement.classList;
+
+      if (classList.contains('dark')) {
+        classList.remove('dark');
+        setTheme('light');
+      } else {
+        classList.add('dark');
+        setTheme('dark');
+      }
     }
   };
 

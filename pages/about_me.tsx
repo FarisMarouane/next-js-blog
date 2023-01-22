@@ -20,7 +20,7 @@ export async function getStaticProps() {
   return { props: { articleContent: htmlContent } };
 }
 
-const Article = ({ articleContent }) => {
+const Article = ({ articleContent }: { articleContent: string }) => {
   return (
     <>
       <Head>

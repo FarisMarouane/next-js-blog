@@ -4,13 +4,21 @@ import styles from '../styles/components/ArticlePreview.module.css';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
+interface IArticlePreviewProps {
+  title: string;
+  publicationDate: string;
+  readingTime: string;
+  description: string;
+  slug: string;
+}
+
 const ArticlePreview = ({
   title,
   publicationDate,
   readingTime,
   description,
   slug,
-}) => {
+}: IArticlePreviewProps) => {
   return (
     <article>
       <header>

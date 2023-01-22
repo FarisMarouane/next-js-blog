@@ -1,17 +1,21 @@
 import Head from 'next/head';
 import Aside from '../components/Aside';
 import Footer from '../components/Footer';
-import { getAllArticles } from '../utils/mdx';
+import { IArticleMetaData, getAllArticlesMetadata } from '../utils/mdx';
 import ArticlePreview from '../components/ArticlePreview';
 
 export function getStaticProps() {
-  const allArticles = getAllArticles();
+  const allArticlesMetaData = getAllArticlesMetadata();
   return {
-    props: { allArticles },
+    props: { allArticlesMetaData },
   };
 }
 
-export default function Home({ allArticles }) {
+export default function Home({
+  allArticlesMetaData,
+}: {
+  allArticlesMetaData: IArticleMetaData[];
+}) {
   return (
     <>
       <Head>
@@ -33,14 +37,14 @@ export default function Home({ allArticles }) {
       </Head>
       <Aside />
       <main>
-        {allArticles.map((article) => (
+        {allArticlesMetaData.map((articleMetaData) => (
           <ArticlePreview
-            key={article.id}
-            title={article.title}
-            readingTime={article.readingTime}
-            publicationDate={article.date}
-            description={article.metaDesc}
-            slug={article.slug}
+            key={articleMetaData.id}
+            title={articleMetaData.title}
+            readingTime={articleMetaData.readingTime}
+            publicationDate={articleMetaData.date}
+            description={articleMetaData.metaDesc}
+            slug={articleMetaData.slug}
           />
         ))}
       </main>
