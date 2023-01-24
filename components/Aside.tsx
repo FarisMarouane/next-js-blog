@@ -25,6 +25,12 @@ const Aside = () => (
         <br />
         Ideas expressed on this blog are stricly my own, and not those of
         potential employers.
+        <br />
+        <br />
+        Made using the{' '}
+        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
+          Next JS framework
+        </a>
       </p>
     </div>
   </aside>
