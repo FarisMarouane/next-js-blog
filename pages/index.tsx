@@ -37,16 +37,21 @@ export default function Home({
       </Head>
       <Aside />
       <main>
-        {allArticlesMetaData.map((articleMetaData) => (
-          <ArticlePreview
-            key={articleMetaData.id}
-            title={articleMetaData.title}
-            readingTime={articleMetaData.readingTime}
-            publicationDate={articleMetaData.date}
-            description={articleMetaData.metaDesc}
-            slug={articleMetaData.slug}
-          />
-        ))}
+        {allArticlesMetaData
+          .sort((a, b) => {
+            if (a.id < b.id) return -1;
+            return 1;
+          })
+          .map((articleMetaData) => (
+            <ArticlePreview
+              key={articleMetaData.id}
+              title={articleMetaData.title}
+              readingTime={articleMetaData.readingTime}
+              publicationDate={articleMetaData.date}
+              description={articleMetaData.metaDesc}
+              slug={articleMetaData.slug}
+            />
+          ))}
       </main>
       <Footer />
     </>
