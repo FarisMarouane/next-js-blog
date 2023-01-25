@@ -24,7 +24,7 @@ I also like working with inspiring colleagues that help me grow as a software en
 
 &nbsp;
 
-Although I specialise in *frontend* web developement, I also have working knowledge in backend developement as I have tinkered with Node JS and studied the theoritical foundations of Computer Networking.
+Although I specialise in *frontend* web developement, I also have working knowledge in backend developement as I have tinkered with Node JS and studied the theoretical foundations of Computer Networking.
 
 
 [Linkedin Profile](https://www.linkedin.com/in/marouane-faris-1514b970/)
