@@ -7,8 +7,14 @@
   margin: 4.5rem auto 0;
   left: 0;
   right: 0;
-}
 
-.resume {
-  margin-left: auto;
+  @media screen and (max-width: 400px) {
+    & div:nth-child(2) {
+      display: none;
+    }
+  }
+
+  & a:last-child {
+    margin-left: auto;
+  }
 }
