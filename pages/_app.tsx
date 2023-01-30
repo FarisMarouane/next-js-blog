@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { Merriweather } from '@next/font/google';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -28,10 +29,17 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta property="og:image" content="/photo_linkedin.jpeg" />
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <ContextProvider>
         <Layout>
           <>
+            <Script
+              async
+              src="https://cdn.jsdelivr.net/npm/pwacompat"
+              crossOrigin="anonymous"
+            />
+            <Script src="/scripts.js" />
             <style jsx global>{`
               html {
                 font-family: ${font.style.fontFamily};
