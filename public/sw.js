@@ -1,5 +1,13 @@
 const CACHE_NAME = 'v1';
 
+async function respondFromCache(event) {
+  const cachedResponse = await caches.match(event.request);
+
+  if (cachedResponse) return cachedResponse;
+
+  return undefined;
+}
+
 async function cache(request, response) {
   if (response.type === 'error' || response.type === 'opaque') {
     return Promise.resolve(); // do not put in cache network errors
@@ -35,19 +43,26 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     (async () => {
-      const cachedResponse = await caches.match(event.request);
-
-      if (!cachedResponse) {
-        console.log('No cache was found for the request', event.request.url);
-
+      // Attempt to fetch the ressource
+      try {
         const fetchResponse = await fetch(event.request);
 
         await cache(event.request, fetchResponse);
         return fetchResponse;
-      }
+      } catch (error) {
+        // No internet connection or fetch error => Response with cached ressource if it exists
+        console.log('Error fetching the request', event.request.url);
 
-      console.log('A cache was found for the request', event.request.url);
-      return cachedResponse;
+        const cachedResponse = await caches.match(event.request);
+
+        if (!cachedResponse) {
+          Promise.reject(
+            `No cache was found for the request:  ${event.request.url}`,
+          );
+        }
+
+        return cachedResponse;
+      }
     })(),
   );
 });
