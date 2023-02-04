@@ -21,24 +21,25 @@ async function cache(request, response) {
   }
 }
 
-self.addEventListener('install', (event) => {
-  console.log('Service Worker installing.');
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      cache
-        .addAll([
-          '/',
-          './scripts.js',
-          '/favicon.png',
-          '/about',
-          '/blog/self_care',
-          '/blog/nextJS',
-          '/blog/loremIpsum',
-        ])
-        .then((r) => r);
-    }),
-  );
-});
+// Useless for now, as this pre-caching approach doesn't work in a Next JS app
+// self.addEventListener('install', (event) => {
+//   console.log('Service Worker installing.');
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then((cache) => {
+//       cache
+//         .addAll([
+//           '/',
+//           './scripts.js',
+//           '/favicon.png',
+//           '/about',
+//           '/blog/self_care',
+//           '/blog/nextJS',
+//           '/blog/loremIpsum',
+//         ])
+//         .then((r) => r);
+//     }),
+//   );
+// });
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
