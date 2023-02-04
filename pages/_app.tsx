@@ -1,11 +1,12 @@
 import Script from 'next/script';
 import { Merriweather } from '@next/font/google';
-import ContextProvider from '../components/ContextProvider';
-import '../styles/globals.css';
-import '../styles/components/Toggle.css';
-import Layout from '../components/Layout';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import ContextProvider from '../components/ContextProvider';
+import Layout from '../components/Layout';
+import ErrorBoundary from '../components/ErrorBoundary';
+import '../styles/globals.css';
+import '../styles/components/Toggle.css';
 
 const font = Merriweather({ subsets: ['latin'], weight: '400' });
 
@@ -47,7 +48,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 font-kerning: normal;
               }
             `}</style>
-            <Component {...pageProps} />
+            <ErrorBoundary>
+              <Component {...pageProps} />
+            </ErrorBoundary>
           </>
         </Layout>
       </ContextProvider>
