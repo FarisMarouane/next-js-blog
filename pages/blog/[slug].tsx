@@ -83,6 +83,11 @@ const Article = ({
         <title>{frontmatter.title}</title>
         <meta name="author" content="Marouane Faris" />
         <meta name="description" content={frontmatter.metaDesc} />
+        <meta
+          property="og:url"
+          content={`https://www.marouanefaris.dev/blog/${frontmatter.slug}`}
+        />
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={`${frontmatter.title}`} />
         <meta property="og:description" content={`${frontmatter.metaDesc}`} />
       </Head>
