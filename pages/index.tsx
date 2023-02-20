@@ -33,7 +33,6 @@ export default function Home({
         />
         <meta property="og:image" content="/photo_linkedin.jpeg" />
         <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="manifest" href="/manifest.json" />
       </Head>
       <Aside />
       <main>
