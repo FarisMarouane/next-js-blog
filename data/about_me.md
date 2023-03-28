@@ -1,6 +1,6 @@
 # Marouane Faris - React JS Expert
 
-Hello There, my name is Marouane and I am a **React JS** expert with 5 years of experience in frontend web developement.
+Hello There, my name is Marouane and I am a Fullstack JS developer and **React JS** expert with 5 years of experience in web developement.
 
 Above everything else, I like tackling challenging technical problems using my coding abilites.
 
@@ -11,6 +11,8 @@ I also like working with inspiring colleagues that help me grow as a software en
 #### The technical stack I am used to working with:
 
 - React JS (including of course the latest versions that use Hooks and other cool stuff)
+- Next JS (used to build this blog !)
+- Svelte JS (You can check a svelte version of this blog at [svelte.marouanefaris.dev](https://svelte.marouanefaris.dev/))
 - Typescript
 - Redux
 - Redux-thunk
@@ -20,6 +22,7 @@ I also like working with inspiring colleagues that help me grow as a software en
 - CSS modules
 - Vanilla CSS
 - Storybook
+- Node JS
 - Docker
 
 &nbsp;
