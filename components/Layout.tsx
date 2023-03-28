@@ -1,5 +1,5 @@
 import { useEffect, useContext, ReactElement } from 'react';
-import styles from '../styles/Layout.module.css';
+import styles from '../styles/components/Layout.module.css';
 import { ThemeContext } from './ContextProvider';
 import BlogHeader from './BlogHeader';
 
