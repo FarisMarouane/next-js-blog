@@ -20,6 +20,7 @@ body {
   --textLink: #366ed8;
   --articlePreviewBg: rgb(255, 255, 255);
   --textTitle: var(--primary);
+  --articlePreviewBoxShadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
   background: var(--bg);
   color: var(--primary);
@@ -36,6 +37,7 @@ body.dark {
   --border: rgb(51, 51, 51);
   --textLink: #d4d9e4;
   --articlePreviewBg: rgb(46, 46, 51);
+  --articlePreviewBoxShadow: rgba(100, 100, 100, 0.4) 0px 7px 29px 0px;
 
   color-scheme: dark;
   background: var(--bg);
