@@ -16,7 +16,6 @@
   box-shadow: 0 1px 0 0 currentColor;
   color: var(--textLink);
   text-decoration: none;
-  color: #366ed8;
 }
 
 .aside a:hover {

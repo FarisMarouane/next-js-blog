@@ -16,7 +16,10 @@ body {
   --bg: #f9fbfd;
   --primary: #222;
   --secondary: rgb(108, 108, 108);
-  --textLink: rgb(30, 30, 30);
+  --border: rgb(238, 238, 238);
+  --textLink: #366ed8;
+  --articlePreviewBg: rgb(255, 255, 255);
+  --textTitle: var(--primary);
 
   background: var(--bg);
   color: var(--primary);
@@ -27,13 +30,16 @@ body {
 }
 
 body.dark {
-  --bg: #282c35;
-  --textNormal: hsla(0, 0%, 100%, 0.88);
-  --textLink: var(--pink);
+  --bg: rgb(29, 30, 32);
+  --primary: hsla(0, 0%, 100%, 0.88);
+  --secondary: rgb(155, 156, 157);
+  --border: rgb(51, 51, 51);
+  --textLink: #d4d9e4;
+  --articlePreviewBg: rgb(46, 46, 51);
 
   color-scheme: dark;
   background: var(--bg);
-  color: var(--textNormal);
+  color: var(--primary);
 }
 
 /* a {

@@ -7,10 +7,10 @@
   position: relative;
   margin-bottom: 24px;
   padding: 24px;
-  background: #fff;
+  background: var(--articlePreviewBg);
   border-radius: 8px;
   /* transition: transform 0.1s; */
-  border: 1px solid rgb(238, 238, 238);
+  border: 1px solid var(--border);
 }
 
 .article a {
