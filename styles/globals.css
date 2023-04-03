@@ -42,16 +42,16 @@ body.dark {
   color: var(--primary);
 }
 
-/* a {
+a:not(.articlePreviewLink, .blogTitle) {
   box-shadow: 0 1px 0 0 currentColor;
   color: var(--textLink);
   text-decoration: none;
   color: #366ed8;
-} */
+}
 
-/* a:hover {
+a:hover {
   box-shadow: none;
-} */
+}
 
 h1,
 h3 {

@@ -33,13 +33,13 @@ const BlogHeader = ({ title }: { title: string }) => {
     <header className={`${styles.header} ${font.className}`}>
       {pathname === '/' ? (
         <h1 className={styles.primaryTitle}>
-          <Link className={`${styles.link}`} href="/">
+          <Link className={`blogTitle ${styles.link}`} href="/">
             {title}
           </Link>
         </h1>
       ) : (
         <h3 className={`${styles.tertiaryTitle}`}>
-          <Link className={styles.link} href="/">
+          <Link className={`blogTitle ${styles.link}`} href="/">
             {title}
           </Link>
         </h3>

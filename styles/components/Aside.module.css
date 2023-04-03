@@ -11,13 +11,3 @@
   height: 3.5rem;
   border-radius: 50%;
 }
-
-.aside a {
-  box-shadow: 0 1px 0 0 currentColor;
-  color: var(--textLink);
-  text-decoration: none;
-}
-
-.aside a:hover {
-  box-shadow: none;
-}
