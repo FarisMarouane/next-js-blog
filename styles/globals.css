@@ -13,13 +13,13 @@
 
 html,
 body {
-  --bg: #fff;
-  --textNormal: #222;
-  --textTitle: #222;
-  --textLink: #d23669;
+  --bg: #f9fbfd;
+  --primary: #222;
+  --secondary: rgb(108, 108, 108);
+  --textLink: rgb(30, 30, 30);
 
   background: var(--bg);
-  color: var(--textNormal);
+  color: var(--primary);
   max-width: 100vw;
   overflow-x: hidden;
   line-height: 1.75;
@@ -29,7 +29,6 @@ body {
 body.dark {
   --bg: #282c35;
   --textNormal: hsla(0, 0%, 100%, 0.88);
-  --textTitle: #fff;
   --textLink: var(--pink);
 
   color-scheme: dark;
@@ -37,22 +36,19 @@ body.dark {
   color: var(--textNormal);
 }
 
-a {
+/* a {
   box-shadow: 0 1px 0 0 currentColor;
   color: var(--textLink);
   text-decoration: none;
-}
+  color: #366ed8;
+} */
 
-a:hover {
+/* a:hover {
   box-shadow: none;
-}
+} */
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
   margin-top: 3.5rem;
 }
 
@@ -74,7 +70,7 @@ h3 {
   font-size: 1.5rem;
 }
 
-p {
+p:not(.articlePreview) {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;

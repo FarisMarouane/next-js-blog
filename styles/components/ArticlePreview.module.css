@@ -2,3 +2,29 @@
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
 }
+
+.article {
+  position: relative;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  /* transition: transform 0.1s; */
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.article a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.small {
+  color: var(--secondary);
+}
+
+.articlePreview {
+  color: var(--secondary);
+}

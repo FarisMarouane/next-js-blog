@@ -20,16 +20,15 @@ const ArticlePreview = ({
   slug,
 }: IArticlePreviewProps) => {
   return (
-    <article>
+    <article className={styles.article}>
       <header>
-        <h2 className={`${styles.title} ${font.className}`}>
-          <Link href={`/blog/${slug}`}>{title}</Link>
-        </h2>
-        <small>
-          {publicationDate}&nbsp;&bull;&nbsp;{readingTime}
-        </small>
+        <h2 className={`${styles.title} ${font.className}`}>{title}</h2>
       </header>
-      <p>{description}</p>
+      <small className={styles.small}>
+        {publicationDate}&nbsp;&bull;&nbsp;{readingTime}
+      </small>
+      <p className={`${styles.articlePreview} articlePreview`}>{description}</p>
+      <Link href={`/blog/${slug}`} />
     </article>
   );
 };

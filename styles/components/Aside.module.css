@@ -1,10 +1,7 @@
 .aside {
   display: flex;
-  margin-bottom: 3.5rem;
-}
-
-.description {
-  max-width: 310px;
+  margin-bottom: 30px;
+  color: var(--secondary);
 }
 
 .profile_pic {
@@ -13,4 +10,15 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
+}
+
+.aside a {
+  box-shadow: 0 1px 0 0 currentColor;
+  color: var(--textLink);
+  text-decoration: none;
+  color: #366ed8;
+}
+
+.aside a:hover {
+  box-shadow: none;
 }
