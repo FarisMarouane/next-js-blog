@@ -2,3 +2,37 @@
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
 }
+
+.article {
+  position: relative;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: var(--articlePreviewBg);
+  border-radius: 8px;
+  /* transition: transform 0.1s; */
+  border: 1px solid var(--border);
+}
+
+.article:hover {
+  box-shadow: var(--articlePreviewBoxShadow);
+}
+
+.article:active {
+  box-shadow: none;
+}
+
+.article a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.small {
+  color: var(--secondary);
+}
+
+.articlePreview {
+  color: var(--secondary);
+}
