@@ -76,7 +76,6 @@ const Article = ({
       });
     }
   }
-
   return (
     <>
       <Head>
@@ -96,7 +95,7 @@ const Article = ({
           <header>
             <h1 className={font.className}>{frontmatter.title}</h1>
             <small className={styles.small}>
-              {dayjs(frontmatter.publicationDate).format('MMMM D, YYYY')}
+              {dayjs(frontmatter.date).format('MMMM D, YYYY')}
               &nbsp;&bull;&nbsp;
               {frontmatter.readingTime}
             </small>
