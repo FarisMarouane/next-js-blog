@@ -98,6 +98,7 @@ const Article = ({
               {dayjs(frontmatter.date).format('MMMM D, YYYY')}
               &nbsp;&bull;&nbsp;
               {frontmatter.readingTime}
+              &nbsp; (last modified: {frontmatter.lastModified})
             </small>
           </header>
           <PostBody content={articleContent} />
