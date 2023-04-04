@@ -3,9 +3,11 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 
+// This type is almost useless because of [key: string]: string | number | undefined;
 export interface IFrontmatterType {
   id: number;
   date: string;
+  lastModified?: string;
   title: string;
   metatitle: string;
   metaDesc: string;
