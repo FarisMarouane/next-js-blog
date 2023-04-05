@@ -5,7 +5,6 @@ date: '2023-04-02'
 lastModified: '2023-04-04'
 metaTitle: "Asymétrie d'information"
 metaDesc: "L'asymétrie d'information dans le marché d'emploi des développeurs et proposition d'une solution"
-socialImage: /crescent.png
 ---
 
 Tous les développeurs web savent à quel point le processus de recherche d'emploi peut être pénible. Certes, le taux de chômage dans notre secteur d'activité est très bas (avoisinant les 3%, ce qui correspond à une situation de [plein emploi](https://fr.wikipedia.org/wiki/Plein_emploi)), mais ce n'est pas le fait de trouver un emploi en soi qui pose problème .

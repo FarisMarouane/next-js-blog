@@ -4,10 +4,6 @@ title: 'The pros and cons of Next JS'
 date: '2023-01-15'
 metaTitle: 'Written by ChatGPT'
 metaDesc: 'I asked ChatGPT to write a blog article about the pros and cons of Next JS framework'
-socialImage: /crescent.png
-tags:
-  - nextjs
-  - personal
 ---
 
 Next.js is a popular JavaScript framework that allows developers to build server-rendered React applications. It is built on top of React and Node.js and is known for its simplicity and ease of use. In this article, we will take a closer look at the pros and cons of using Next.js to build web applications.
