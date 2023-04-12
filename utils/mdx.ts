@@ -1,68 +1,69 @@
-import path from 'path';
-import fs from 'fs';
-import matter from 'gray-matter';
-import readingTime from 'reading-time';
+import DB from './db';
+import dayjs from 'dayjs';
 
-// This type is almost useless because of [key: string]: string | number | undefined;
-export interface IFrontmatterType {
+export interface IArticleMetadata {
   id: number;
-  date: string;
-  lastModified?: string;
   title: string;
-  metatitle: string;
+  date: string;
+  lastModified: string | null;
+  metaTitle: string;
   metaDesc: string;
-  socialImage?: string;
-  [key: string]: string | number | undefined;
-}
-
-export interface IArticleMetaData extends IFrontmatterType {
-  slug: string;
+  articleContentId: number;
   readingTime: string;
 }
 
-interface IArticle {
-  content: string;
-  frontmatter: Omit<IArticleMetaData, 'id' | 'metatitle'>;
+interface IDbArticleMetadata {
+  id: number;
+  title: string;
+  date: Date;
+  lastmodified: Date | null;
+  metatitle: string;
+  metadesc: string;
+  articlecontentid: number;
+  reading_time: string;
 }
 
-const articlesPath = path.join(process.cwd(), 'data/blog');
-
-export function getArticleFromSlug(slug: string): IArticle {
-  const articleDir = path.join(articlesPath, `${slug}.md`);
-  const source = fs.readFileSync(articleDir);
-  const { content, data } = matter(source);
-
-  return {
-    content,
-    frontmatter: {
-      slug,
-      metaDesc: data.metaDesc,
-      title: data.title,
-      date: data.date,
-      readingTime: readingTime(source.toString()).text,
-      ...data,
-    },
-  };
+export interface IArticleContent {
+  article_id: number;
+  article_content: string;
 }
 
-export function getAllArticlesMetadata(): IArticleMetaData[] {
-  const articles = fs.readdirSync(path.join(process.cwd(), 'data/blog'));
+export async function getArticleContentFromSlug(
+  slug: string,
+): Promise<IArticleContent> {
+  const { rows }: { rows: IArticleContent[] } = await DB.query(
+    `SELECT * FROM articles_content WHERE article_id=${slug}`,
+  );
 
-  return articles.reduce(
-    (allArticlesMetadata: IArticleMetaData[], currentArticle: string) => {
-      const source = fs.readFileSync(
-        path.join(process.cwd(), 'data/blog', currentArticle),
-        'utf-8',
-      );
-      const { data } = matter(source);
+  const article_content = rows[0];
 
+  return article_content;
+}
+
+export async function getAllArticlesMetadata(): Promise<IArticleMetadata[]> {
+  const { rows: articlesMetadata }: { rows: IDbArticleMetadata[] } =
+    await DB.query('SELECT * FROM articles_metadata');
+
+  return articlesMetadata.reduce(
+    (
+      allArticlesMetadata: IArticleMetadata[],
+      currentArticleMetadata: IDbArticleMetadata,
+    ) => {
       return [
-        {
-          ...(data as IFrontmatterType),
-          slug: currentArticle.replace('.md', ''),
-          readingTime: readingTime(source).text,
-        },
         ...allArticlesMetadata,
+        {
+          id: currentArticleMetadata.id,
+          title: currentArticleMetadata.title,
+          date: dayjs(currentArticleMetadata.date).format('YYYY-MM-DD'),
+          lastModified:
+            currentArticleMetadata.lastmodified !== null
+              ? dayjs(currentArticleMetadata.lastmodified).format('YYYY-MM-DD')
+              : null,
+          metaTitle: currentArticleMetadata.metatitle,
+          metaDesc: currentArticleMetadata.metadesc,
+          articleContentId: currentArticleMetadata.articlecontentid,
+          readingTime: currentArticleMetadata.reading_time,
+        },
       ];
     },
     [],

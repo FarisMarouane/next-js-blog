@@ -9,7 +9,7 @@ interface IArticlePreviewProps {
   publicationDate: string;
   readingTime: string;
   description: string;
-  slug: string;
+  slug: number;
 }
 
 const ArticlePreview = ({

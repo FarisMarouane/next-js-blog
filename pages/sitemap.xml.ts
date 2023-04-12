@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
-import { getAllArticlesMetadata, IArticleMetaData } from '../utils/mdx';
+import { getAllArticlesMetadata, IArticleMetadata } from '../utils/mdx';
 
-function generateSiteMap(posts: IArticleMetaData[]) {
+function generateSiteMap(posts: IArticleMetadata[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
@@ -11,10 +11,10 @@ function generateSiteMap(posts: IArticleMetaData[]) {
        <loc>https://www.marouanefaris.dev/about_me</loc>
      </url>
      ${posts
-       .map(({ slug }) => {
+       .map(({ articleContentId }) => {
          return `
        <url>
-           <loc>${`https://www.marouanefaris.dev/blog/${slug}`}</loc>
+           <loc>${`https://www.marouanefaris.dev/blog/${articleContentId}`}</loc>
        </url>
      `;
        })
@@ -28,7 +28,7 @@ function SiteMap() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const postsMetaData = getAllArticlesMetadata();
+  const postsMetaData = await getAllArticlesMetadata();
 
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(postsMetaData);

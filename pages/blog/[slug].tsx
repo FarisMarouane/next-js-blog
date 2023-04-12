@@ -2,11 +2,11 @@ import Head from 'next/head';
 import dayjs from 'dayjs';
 import { Montserrat } from '@next/font/google';
 import {
-  IFrontmatterType,
+  IArticleMetadata,
   getAllArticlesMetadata,
-  getArticleFromSlug,
+  getArticleContentFromSlug,
+  IArticleContent,
 } from '../../utils/mdx';
-import markdownToHtml from '../../utils/markdownToHtml';
 import PostBody from '../../components/PostBody';
 import styles from '../../styles/components/Article.module.css';
 import ArticleNavigation, {
@@ -16,46 +16,49 @@ import ArticleNavigation, {
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
 interface IArticleProps {
-  articleContent: string;
-  frontmatter: IFrontmatterType;
+  articleContent: IArticleContent;
+  articleMetadata: IArticleMetadata;
   articlesMetadata: { slug: string; id: number; title: string }[];
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const { content, frontmatter } = getArticleFromSlug(slug);
-  const articlesMetadata = getAllArticlesMetadata();
-
-  const htmlContent = await markdownToHtml(content);
+  const articlesMetadata = await getAllArticlesMetadata();
+  const articleContent = await getArticleContentFromSlug(slug);
+  const articleMetadata = articlesMetadata.find(({ articleContentId }) => {
+    return articleContentId === Number(slug);
+  });
 
   return {
     props: {
-      articleContent: htmlContent,
-      frontmatter,
-      articlesMetadata: articlesMetadata.map(({ slug, id, title }) => ({
-        slug,
-        id,
+      articleContent,
+      articleMetadata,
+      articlesMetadata: articlesMetadata.map(({ articleContentId, title }) => ({
+        slug: String(articleContentId),
+        id: articleContentId,
         title,
       })),
     },
   };
 }
 
-export function getStaticPaths() {
-  const articlesMetadata = getAllArticlesMetadata();
+export async function getStaticPaths() {
+  const articlesMetadata = await getAllArticlesMetadata();
 
   return {
-    paths: articlesMetadata.map(({ slug }) => ({ params: { slug } })),
+    paths: articlesMetadata.map(({ articleContentId }) => ({
+      params: { slug: `${articleContentId}` },
+    })),
     fallback: false,
   };
 }
 
 const Article = ({
   articleContent,
-  frontmatter,
+  articleMetadata,
   articlesMetadata,
 }: IArticleProps) => {
-  const { id: currentArticleId } = frontmatter;
+  const { articleContentId: currentArticleId } = articleMetadata;
 
   let articlesLinks: IArticleLink[] = [];
 
@@ -74,32 +77,42 @@ const Article = ({
       });
     }
   }
+
   return (
     <>
       <Head>
-        <title>{frontmatter.title}</title>
+        <title>{articleMetadata.title}</title>
         <meta name="author" content="Marouane Faris" />
-        <meta name="description" content={frontmatter.metaDesc} />
+        <meta name="description" content={articleMetadata.metaDesc} />
         <meta
           property="og:url"
-          content={`https://www.marouanefaris.dev/blog/${frontmatter.slug}`}
+          content={`https://www.marouanefaris.dev/blog/${articleMetadata.articleContentId}`}
         />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${frontmatter.title}`} />
-        <meta property="og:description" content={`${frontmatter.metaDesc}`} />
+        <meta property="og:title" content={`${articleMetadata.title}`} />
+        <meta
+          property="og:description"
+          content={`${articleMetadata.metaDesc}`}
+        />
       </Head>
       <main>
         <article>
           <header>
-            <h1 className={font.className}>{frontmatter.title}</h1>
+            <h1 className={font.className}>{articleMetadata.title}</h1>
             <small className={styles.small}>
-              {dayjs(frontmatter.date).format('MMMM D, YYYY')}
+              {dayjs(articleMetadata.date).format('MMMM D, YYYY')}
               &nbsp;&bull;&nbsp;
-              {frontmatter.readingTime}
-              &nbsp; (last modified: {frontmatter.lastModified})
+              {articleMetadata.readingTime}
+              &nbsp;{' '}
+              {!!articleMetadata.lastModified ? (
+                <>
+                  (last modified:{' '}
+                  {dayjs(articleMetadata.lastModified).format('MMMM D, YYYY')})
+                </>
+              ) : null}
             </small>
           </header>
-          <PostBody content={articleContent} />
+          <PostBody content={articleContent.article_content} />
         </article>
       </main>
       <ArticleNavigation

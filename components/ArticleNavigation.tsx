@@ -30,13 +30,15 @@ const ArticleNavigation = ({
       </li>
     );
   } else {
-    jsxToRender = articlesLinks.map(({ path, name }, index) => (
-      <li key={name}>
-        <Link rel={index === 0 ? 'prev' : 'next'} href={path}>
-          {index === 0 && '← '} {name} {index === 1 && ' →'}
-        </Link>
-      </li>
-    ));
+    jsxToRender = [...articlesLinks].reverse().map(({ path, name }, index) => {
+      return (
+        <li key={name}>
+          <Link rel={index === 0 ? 'prev' : 'next'} href={path}>
+            {index === 0 && '← '} {name} {index === 1 && ' →'}
+          </Link>
+        </li>
+      );
+    });
   }
 
   return (

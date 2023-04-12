@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import Aside from '../components/Aside';
 import Footer from '../components/Footer';
-import { IArticleMetaData, getAllArticlesMetadata } from '../utils/mdx';
+import { IArticleMetadata, getAllArticlesMetadata } from '../utils/mdx';
 import ArticlePreview from '../components/ArticlePreview';
 
-export function getStaticProps() {
-  const allArticlesMetaData = getAllArticlesMetadata();
+export async function getStaticProps() {
+  const allArticlesMetaData = await getAllArticlesMetadata();
   return {
     props: { allArticlesMetaData },
   };
@@ -14,7 +14,7 @@ export function getStaticProps() {
 export default function Home({
   allArticlesMetaData,
 }: {
-  allArticlesMetaData: IArticleMetaData[];
+  allArticlesMetaData: IArticleMetadata[];
 }) {
   return (
     <>
@@ -38,7 +38,7 @@ export default function Home({
       <main>
         {allArticlesMetaData
           .sort((a, b) => {
-            if (a.id > b.id) return -1;
+            if (a.articleContentId > b.articleContentId) return -1;
             return 1;
           })
           .map((articleMetaData) => (
@@ -48,7 +48,7 @@ export default function Home({
               readingTime={articleMetaData.readingTime}
               publicationDate={articleMetaData.date}
               description={articleMetaData.metaDesc}
-              slug={articleMetaData.slug}
+              slug={articleMetaData.articleContentId}
             />
           ))}
       </main>
