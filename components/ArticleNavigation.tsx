@@ -5,7 +5,6 @@ import styles from '../styles/components/ArticleNavigation.module.css';
 export interface IArticleLink {
   path: string;
   name: string;
-  id: number;
 }
 
 const ArticleNavigation = ({
@@ -18,7 +17,7 @@ const ArticleNavigation = ({
   let jsxToRender: ReactNode;
 
   if (articlesLinks.length === 1) {
-    const isLastArticle = currentArticleId !== 0;
+    const isLastArticle = currentArticleId === 0;
     jsxToRender = (
       <li style={{ marginLeft: `${!isLastArticle && 'auto'}` }}>
         <Link

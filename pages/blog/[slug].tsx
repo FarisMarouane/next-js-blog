@@ -61,18 +61,16 @@ const Article = ({
 
   for (const articleMetadata of articlesMetadata) {
     if (articleMetadata.id + 1 === currentArticleId) {
-      articlesLinks.push({
+      articlesLinks.unshift({
         name: articleMetadata.title,
         path: articleMetadata.slug,
-        id: articleMetadata.id,
       });
     }
 
     if (articleMetadata.id - 1 === currentArticleId) {
-      articlesLinks.push({
+      articlesLinks.unshift({
         name: articleMetadata.title,
         path: articleMetadata.slug,
-        id: articleMetadata.id,
       });
     }
   }
