@@ -9,7 +9,6 @@
   padding: 24px;
   background: var(--articlePreviewBg);
   border-radius: 8px;
-  /* transition: transform 0.1s; */
   border: 1px solid var(--border);
 }
 

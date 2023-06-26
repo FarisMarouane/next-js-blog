@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import styles from '../styles/components/Aside.module.css';
+import styles from './Aside.module.css';
 
 const Aside = () => (
   <aside className={styles.aside}>
