@@ -1,4 +1,5 @@
-import { GetServerSideProps } from 'next';
+import { MetadataRoute } from 'next';
+
 import { getAllArticlesMetadata, IArticleMetaData } from '../utils/mdx';
 
 function generateSiteMap(posts: IArticleMetaData[]) {
@@ -23,24 +24,26 @@ function generateSiteMap(posts: IArticleMetaData[]) {
  `;
 }
 
-function SiteMap() {
-  return;
-}
-
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+function SiteMap(): MetadataRoute.Sitemap {
   const postsMetaData = getAllArticlesMetadata();
 
-  // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(postsMetaData);
+  const sitemap = [
+    {
+      url: 'https://www.marouanefaris.dev',
+    },
+    {
+      url: 'https://www.marouanefaris.dev/blog',
+    },
+  ];
 
-  res.setHeader('Content-Type', 'text/xml');
-  // we send the XML to the browser
-  res.write(sitemap);
-  res.end();
-
-  return {
-    props: {},
-  };
-};
+  return sitemap.concat(
+    postsMetaData.map(({ slug, date }) => {
+      return {
+        url: `https://www.marouanefaris.dev/blog/${slug}`,
+        lastModified: date,
+      };
+    }),
+  );
+}
 
 export default SiteMap;
