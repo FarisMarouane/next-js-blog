@@ -1,60 +1,43 @@
 import Head from 'next/head';
-import dayjs from 'dayjs';
 import { Montserrat } from '@next/font/google';
-import {
-  IFrontmatterType,
-  getAllArticlesMetadata,
-  getArticleFromSlug,
-} from '../../utils/mdx';
-import markdownToHtml from '../../utils/markdownToHtml';
+import dayjs from 'dayjs';
+
+import { getAllArticlesMetadata, getArticleFromSlug } from '../../../utils/mdx';
+import markdownToHtml from '../../../utils/markdownToHtml';
 import PostBody from '../../components/PostBody';
-import styles from '../../styles/components/Article.module.css';
+import styles from './Article.module.css';
 import ArticleNavigation, {
   IArticleLink,
 } from '../../components/ArticleNavigation';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
-interface IArticleProps {
-  articleContent: string;
-  frontmatter: IFrontmatterType;
-  articlesMetadata: { slug: string; id: number; title: string }[];
-}
-
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export async function getArticleData(slug: string) {
   const { content, frontmatter } = getArticleFromSlug(slug);
   const articlesMetadata = getAllArticlesMetadata();
 
   const htmlContent = await markdownToHtml(content);
 
   return {
-    props: {
-      articleContent: htmlContent,
-      frontmatter,
-      articlesMetadata: articlesMetadata.map(({ slug, id, title }) => ({
-        slug,
-        id,
-        title,
-      })),
-    },
+    articleContent: htmlContent,
+    frontmatter,
+    articlesMetadata: articlesMetadata.map(({ slug, id, title }) => ({
+      slug,
+      id,
+      title,
+    })),
   };
 }
 
-export function getStaticPaths() {
+export function generateStaticParams() {
   const articlesMetadata = getAllArticlesMetadata();
 
-  return {
-    paths: articlesMetadata.map(({ slug }) => ({ params: { slug } })),
-    fallback: false,
-  };
+  return articlesMetadata.map(({ slug }) => ({ params: { slug } }));
 }
 
-const Article = ({
-  articleContent,
-  frontmatter,
-  articlesMetadata,
-}: IArticleProps) => {
+const Article = async ({ params: { slug } }: { params: { slug: string } }) => {
+  const { articleContent, frontmatter, articlesMetadata } =
+    await getArticleData(slug);
   const { id: currentArticleId } = frontmatter;
 
   let articlesLinks: IArticleLink[] = [];

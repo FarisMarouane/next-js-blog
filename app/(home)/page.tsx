@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Hello There, my name is Marouane and I am a React JS expert with 5 years of experience in frontend web developement',
   openGraph: {
     type: 'website',
-    url: 'https://example.com',
+    url: 'https://marouanefaris.dev',
     title: 'Marouane Faris',
     description: 'About me',
     images: [
