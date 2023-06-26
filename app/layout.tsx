@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Merriweather } from 'next/font/google';
 
-import Layout from './components/Layout/Layout';
+import Layout from './components/Layout';
 import './style/global.css';
-import './style/Toggle.css';
 
 export const metadata: Metadata = {
   title: 'Marouane Faris',

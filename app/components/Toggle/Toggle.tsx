@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import Toggle from 'react-toggle';
 
-import Image from 'next/image';
+import './Toggle.css';
 
 interface IToggleInputProps {
   onChange: () => void;

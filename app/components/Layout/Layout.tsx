@@ -2,8 +2,8 @@
 
 import { useEffect, useContext, ReactNode } from 'react';
 import styles from './Layout.module.css';
-import ContextProvider, { ThemeContext } from '../Context/ContextProvider';
-import BlogHeader from '../BlogHeader/BlogHeader';
+import ContextProvider, { ThemeContext } from '../Context';
+import BlogHeader from '../BlogHeader';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const { setTheme } = useContext(ThemeContext);

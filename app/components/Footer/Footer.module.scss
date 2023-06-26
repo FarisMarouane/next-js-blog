@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.8rem 1.5rem 0;
+  margin: 4.5rem auto 0;
+  left: 0;
+  right: 0;
+
+  & a:last-child {
+    margin-left: auto;
+  }
+}

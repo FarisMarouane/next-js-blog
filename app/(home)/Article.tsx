@@ -1,7 +1,7 @@
 'use client';
 
-import PostBody from '../../components/PostBody';
-import Footer from '../../components/Footer';
+import PostBody from '../components/PostBody';
+import Footer from '../components/Footer';
 
 const Article = ({ articleContent }: { articleContent: string }) => {
   return (

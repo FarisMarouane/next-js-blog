@@ -1,11 +1,11 @@
 import { usePathname } from 'next/navigation';
 import { useContext } from 'react';
-import { ThemeContext } from '../Context/ContextProvider';
+import { ThemeContext } from '../Context';
 import styles from './Header.module.css';
 import Link from 'next/link';
 
 import { Montserrat } from '@next/font/google';
-import ToggleInput from '../Toggle/Toggle';
+import ToggleInput from '../Toggle';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
