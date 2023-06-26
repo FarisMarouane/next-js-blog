@@ -1,6 +1,4 @@
 .footer {
-  position: absolute;
-  bottom: 15px;
   display: flex;
   justify-content: space-between;
   padding: 1.8rem 1.5rem 0;
@@ -8,14 +6,7 @@
   left: 0;
   right: 0;
 
-  @media screen and (max-width: 400px) {
-    & div:nth-child(2) {
-      display: none;
-    }
-  }
-
   & a:last-child {
     margin-left: auto;
   }
 }
-
