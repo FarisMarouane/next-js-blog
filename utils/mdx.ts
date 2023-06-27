@@ -12,7 +12,6 @@ export interface IFrontmatterType {
   metatitle: string;
   metaDesc: string;
   socialImage?: string;
-  [key: string]: string | number | undefined;
 }
 
 export interface IArticleMetaData extends IFrontmatterType {
@@ -22,7 +21,7 @@ export interface IArticleMetaData extends IFrontmatterType {
 
 interface IArticle {
   content: string;
-  frontmatter: Omit<IArticleMetaData, 'id' | 'metatitle'>;
+  frontmatter: Omit<IArticleMetaData, 'metatitle'>;
 }
 
 const articlesPath = path.join(process.cwd(), 'data/blog');
@@ -40,6 +39,7 @@ export function getArticleFromSlug(slug: string): IArticle {
       title: data.title,
       date: data.date,
       readingTime: readingTime(source.toString()).text,
+      id: data.id,
       ...data,
     },
   };
