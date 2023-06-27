@@ -12,7 +12,7 @@ import ArticleNavigation, {
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
-export async function getArticleData(slug: string) {
+async function getArticleData(slug: string) {
   const { content, frontmatter } = getArticleFromSlug(slug);
   const articlesMetadata = getAllArticlesMetadata();
 
