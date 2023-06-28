@@ -1,5 +1,5 @@
 ---
-id: 5
+id: 1
 title: "Playing around with Next JS app directory and React Server Components"
 date: '2023-06-27'
 lastModified: '2023-06-28'
