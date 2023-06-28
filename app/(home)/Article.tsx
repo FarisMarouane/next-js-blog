@@ -1,5 +1,3 @@
-'use client';
-
 import PostBody from '../components/PostBody';
 import Footer from '../components/Footer';
 
