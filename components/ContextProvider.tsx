@@ -3,10 +3,11 @@ import {
   Dispatch,
   ReactElement,
   SetStateAction,
+  useEffect,
   useState,
 } from 'react';
 
-export type ThemeType = 'light' | 'dark';
+export type ThemeType = 'light' | 'dark' | undefined;
 export type ThemeContextType = {
   theme: ThemeType;
   setTheme: Dispatch<SetStateAction<ThemeType>>;
@@ -17,8 +18,13 @@ export const ThemeContext = createContext<ThemeContextType>({
   setTheme: () => undefined,
 });
 
-const ContextProvider = ({ children }: { children: ReactElement }) => {
-  const [theme, setTheme] = useState<ThemeType>('light');
+const ThemeContextProvider = ({ children }: { children: ReactElement }) => {
+  const [theme, setTheme] = useState<ThemeType>(undefined);
+
+  useEffect(() => {
+    if (theme) window.localStorage.setItem('color-scheme', theme);
+  }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
@@ -26,4 +32,4 @@ const ContextProvider = ({ children }: { children: ReactElement }) => {
   );
 };
 
-export default ContextProvider;
+export default ThemeContextProvider;
