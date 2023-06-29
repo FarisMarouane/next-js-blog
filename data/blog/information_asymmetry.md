@@ -1,5 +1,5 @@
 ---
-id: 4
+id: 0
 title: "L'asymétrie d'information dans le marché d'emploi des développeurs"
 date: '2023-04-02'
 lastModified: '2023-04-04'
