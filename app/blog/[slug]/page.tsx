@@ -21,11 +21,13 @@ async function getArticleData(slug: string) {
   return {
     articleContent: htmlContent,
     frontmatter,
-    articlesMetadata: articlesMetadata.map(({ slug, id, title }) => ({
-      slug,
-      id,
-      title,
-    })),
+    articlesMetadata: articlesMetadata
+      .map(({ slug, id, title }) => ({
+        slug,
+        id,
+        title,
+      }))
+      .sort((a, b) => a.id - b.id),
   };
 }
 
@@ -43,20 +45,23 @@ const Article = async ({ params: { slug } }: { params: { slug: string } }) => {
   let articlesLinks: IArticleLink[] = [];
 
   for (const articleMetadata of articlesMetadata) {
+    // previous article
     if (articleMetadata.id + 1 === currentArticleId) {
-      articlesLinks.unshift({
+      articlesLinks.push({
         name: articleMetadata.title,
         path: articleMetadata.slug,
       });
     }
 
+    // next article
     if (articleMetadata.id - 1 === currentArticleId) {
-      articlesLinks.unshift({
+      articlesLinks.push({
         name: articleMetadata.title,
         path: articleMetadata.slug,
       });
     }
   }
+
   return (
     <>
       <Head>

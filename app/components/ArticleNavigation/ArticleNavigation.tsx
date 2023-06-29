@@ -17,22 +17,25 @@ const ArticleNavigation = ({
   let jsxToRender: ReactNode;
 
   if (articlesLinks.length === 1) {
-    const isLastArticle = currentArticleId === 0;
+    const isFirstArticle = currentArticleId === 0;
     jsxToRender = (
-      <li style={{ marginLeft: `${!isLastArticle && 'auto'}` }}>
+      <li
+        key={currentArticleId}
+        style={{ marginLeft: `${isFirstArticle && 'auto'}` }}
+      >
         <Link
-          rel={isLastArticle ? 'prev' : 'next'}
+          rel={isFirstArticle ? 'next' : 'prev'}
           href={articlesLinks[0].path}
         >
-          {isLastArticle && '← '} {articlesLinks[0].name}{' '}
-          {!isLastArticle && ' →'}
+          {!isFirstArticle && '← '}
+          {articlesLinks[0].name} {isFirstArticle && ' →'}
         </Link>
       </li>
     );
   } else {
     jsxToRender = articlesLinks.map(({ path, name }, index) => (
       <li key={name}>
-        <Link rel={index === 0 ? 'prev' : 'next'} href={path}>
+        <Link rel={index === 0 ? 'next' : 'prev'} href={path}>
           {index === 0 && '← '} {name} {index === 1 && ' →'}
         </Link>
       </li>
@@ -40,7 +43,7 @@ const ArticleNavigation = ({
   }
 
   return (
-    <nav>
+    <nav style={{ marginTop: '20px' }}>
       <ul className={styles.unorderedList}>{jsxToRender}</ul>
     </nav>
   );
