@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { useContext, Context } from 'react';
-import { ThemeContext, ThemeContextType, ThemeType } from './ContextProvider';
+import { useContext } from 'react';
+import { ThemeContext } from './ContextProvider';
 import styles from '../styles/components/Header.module.css';
 import Link from 'next/link';
 
