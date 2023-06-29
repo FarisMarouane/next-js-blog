@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Montserrat } from '@next/font/google';
+import { Montserrat } from 'next/font/google';
 import dayjs from 'dayjs';
 
 import { getAllArticlesMetadata, getArticleFromSlug } from '../../../utils/mdx';
