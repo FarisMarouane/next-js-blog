@@ -1,30 +1,28 @@
 'use client';
 
-import { useEffect, useContext, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styles from './Layout.module.css';
-import ContextProvider, { ThemeContext } from '../Context';
+import ThemeContextProvider from '../Context';
 import BlogHeader from '../BlogHeader';
+import usePreferredColorScheme from '../../hooks/usePreferredColorScheme';
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const { setTheme } = useContext(ThemeContext);
-  useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-
-      const bodyElement = document.querySelector('body');
-      bodyElement && bodyElement.classList.add('dark');
-    }
-  }, [setTheme]);
   return (
     <div className={styles.layout}>
-      <ContextProvider>
-        <>
+      <ThemeContextProvider>
+        <Container>
           <BlogHeader title="Marouane Faris" />
           {children}
-        </>
-      </ContextProvider>
+        </Container>
+      </ThemeContextProvider>
     </div>
   );
 };
 
 export default Layout;
+
+const Container = ({ children }: { children: ReactNode }) => {
+  usePreferredColorScheme();
+
+  return <>{children}</>;
+};
