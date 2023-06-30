@@ -2,7 +2,7 @@
 id: 1
 title: "Playing around with Next JS app directory and React Server Components"
 date: '2023-06-27'
-lastModified: '2023-06-28'
+lastModified: '2023-06-30'
 metaTitle: "React Server Components"
 metaDesc: "What are Server Components and how can we use them to improve our React apps ?"
 ---
@@ -72,9 +72,18 @@ export default Article;
 ```
 &nbsp;
 
+I personally refactored my blog (the one you are visiting right now !) to the new Next JS app directory, where all React components are RSCs by default. You can visit the version that uses the app directory at this [link](https://staging.marouanefaris.dev/), and I must say I didn't see any tangible benefits.
+
+ There could be two explanations for this:
+
+- my website isn't big/complex enough for the benefits to be visible
+- I didn't implement RSCs correctly 🤷
+
+&nbsp;
+
 ## Conclusion
 
-All in all, I wouldn't use React Server Components in a production app yet, as I don't think the specifications are stable enough. But they seem very promising because they will allow us, when they are ready, to significantly reduce the size of the javascript we developers send to the client with traditional React apps.
+All in all, with RSCs and I wouldn't use React Server Components in a production app yet, as I don't think the specifications are stable enough. But they seem very promising because, in theory, they will allow us, when they are ready, to significantly reduce the size of the javascript we developers send to the client with traditional React apps.
 
 If you are interested to know more about RSCs, you can watch this [talk](https://www.youtube.com/watch?v=TQQPAU21ZUw&t=3276s) by Dan Abramov and Laura Tan from the React Team at Meta. 
 
