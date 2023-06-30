@@ -8,7 +8,7 @@ I also like working with inspiring colleagues that help me grow as a software en
 
 ---
 
-#### The technical stack I am used to working with:
+## The technical stack I am used to working with:
 
 - React JS (including of course the latest versions that use Hooks and other cool stuff)
 - Next JS (used to build this blog !)
