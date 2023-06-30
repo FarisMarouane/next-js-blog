@@ -9,6 +9,7 @@ interface IToggleInputProps {
 
 const ToggleInput = ({ onChange, checked = false }: IToggleInputProps) => (
   <Toggle
+    id="react-toggle"
     checked={checked}
     icons={{
       checked: (
