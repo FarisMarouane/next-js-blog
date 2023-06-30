@@ -11,9 +11,12 @@ export type ThemeType = 'light' | 'dark' | null;
 export type ThemeContextType = {
   theme: ThemeType;
   setTheme: Dispatch<SetStateAction<ThemeType>>;
-} | null;
+};
 
-export const ThemeContext = createContext<ThemeContextType>(null);
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: 'light',
+  setTheme: () => undefined,
+});
 
 const ThemeContextProvider = ({ children }: { children: ReactElement }) => {
   const [theme, setTheme] = useState<ThemeType>(null);
