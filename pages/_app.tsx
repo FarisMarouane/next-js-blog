@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { Merriweather } from '@next/font/google';
+import { Merriweather } from 'next/font/google';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import ThemeContextProvider from '../components/ContextProvider';

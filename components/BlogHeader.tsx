@@ -4,7 +4,7 @@ import { ThemeContext } from './ContextProvider';
 import styles from '../styles/components/Header.module.css';
 import Link from 'next/link';
 
-import { Montserrat } from '@next/font/google';
+import { Montserrat } from 'next/font/google';
 import ToggleInput from './Toggle';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });

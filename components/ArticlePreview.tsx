@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Montserrat } from '@next/font/google';
+import { Montserrat } from 'next/font/google';
 import styles from '../styles/components/ArticlePreview.module.css';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });

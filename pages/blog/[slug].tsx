@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import dayjs from 'dayjs';
-import { Montserrat } from '@next/font/google';
+import { Montserrat } from 'next/font/google';
 import {
   IFrontmatterType,
   getAllArticlesMetadata,
