@@ -38,7 +38,7 @@ For the most part, it looks like a regular React component, except that if neede
 - They can't use other React hooks like useEffect or useReducer either
 - They can't use browser APIs as they are rendered on the server
 - They can't use event handlers like onClick
-- They  add more complexity codebase (although, at least from what I saw so far, this added complexity is limited)
+- They  add more complexity to the codebase (although, at least from what I saw so far, this added complexity is limited)
 - In my opinion, and this is their major drawback, they don't seem to be production ready yet. The specifications are very recent and are probably going to change significantly in the future
 
 &nbsp;
@@ -47,7 +47,7 @@ For the most part, it looks like a regular React component, except that if neede
 
 
 As far as I know, the only way to start using RSCs today is through the **Next JS metaframework** and its new app directory.
-Inside the app directory, all React Components are Server Components **by default**. If you want a component to be rendered on the client instead, you have to prepend the keywords 'use client' before any imports ar the top of the file containing the component. Like so:
+Inside the app directory, all React Components are Server Components **by default**. If you want a component to be rendered on the client instead, you have to prepend the keywords 'use client' before any imports at the top of the file containing the component. Like so:
 
 ```
 'use client';
