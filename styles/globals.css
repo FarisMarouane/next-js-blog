@@ -17,10 +17,12 @@ body {
   --primary: #222;
   --secondary: rgb(108, 108, 108);
   --border: rgb(238, 238, 238);
-  --textLink: #366ed8;
+  --textLink: #0081c9;
   --articlePreviewBg: rgb(255, 255, 255);
   --textTitle: var(--primary);
   --articlePreviewBoxShadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --selectedLangButton: #bdc1c8;
+  --langButtonHover: #0081c9;
 
   background: var(--bg);
   color: var(--primary);
@@ -38,6 +40,8 @@ body.dark {
   --textLink: #d4d9e4;
   --articlePreviewBg: rgb(46, 46, 51);
   --articlePreviewBoxShadow: rgba(100, 100, 100, 0.4) 0px 7px 29px 0px;
+  --selectedLangButton: #b1b1b1;
+  --langButtonHover: #515151;
 
   color-scheme: dark;
   background: var(--bg);
