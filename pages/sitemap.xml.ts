@@ -8,7 +8,7 @@ function generateSiteMap(posts: IArticleMetaData[]) {
        <loc>https://www.marouanefaris.dev</loc>
      </url>
      <url>
-       <loc>https://www.marouanefaris.dev/about_me</loc>
+       <loc>https://www.marouanefaris.dev/blog</loc>
      </url>
      ${posts
        .map(({ slug }) => {

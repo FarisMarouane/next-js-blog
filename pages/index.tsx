@@ -31,10 +31,7 @@ const Article = ({ articleContent }: { articleContent: string }) => {
           name="description"
           content="Hello There, my name is Marouane and I am a React JS expert with 5 years of experience in frontend web developement"
         />
-        <meta
-          property="og:url"
-          content="https://www.marouanefaris.dev/about_me"
-        />
+        <meta property="og:url" content="https://www.marouanefaris.dev" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="About me" />
         <meta property="og:description" content="About me" />

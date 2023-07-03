@@ -13,7 +13,7 @@ const Aside = () => (
       height={56}
     />
     <p>
-      Personal blog by <Link href="/about_me">Marouane Faris</Link>
+      Personal blog by <Link href="/">Marouane Faris</Link>
       .
       <br />
       Ideas expressed on this blog are stricly my own, and not those of
