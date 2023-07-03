@@ -1,13 +1,24 @@
 import { useContext, useEffect } from 'react';
-import { ThemeContext, ThemeType } from '../components/ContextProvider';
+import {
+  LanguageContext,
+  LanguageType,
+  ThemeContext,
+  ThemeType,
+} from '../components/ContextProvider';
 
-const usePreferredColorScheme = () => {
+const useClientPreferences = () => {
   const { setTheme } = useContext(ThemeContext);
+  const { setLanguage } = useContext(LanguageContext);
 
   useEffect(() => {
     const localStorageTheme = window.localStorage.getItem(
       'color-scheme',
     ) as ThemeType | null;
+
+    const localStorageLanguage = window.localStorage.getItem(
+      'preferred-language',
+    ) as LanguageType | null;
+
     const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
     const bodyElement = document.querySelector('body');
 
@@ -40,9 +51,13 @@ const usePreferredColorScheme = () => {
       setTheme('dark');
     }
 
+    if (localStorageLanguage) {
+      setLanguage(localStorageLanguage);
+    }
+
     return () =>
       matchMedia.removeEventListener('change', listenToColorThemeChange);
-  }, [setTheme]);
+  }, [setTheme, setLanguage]);
 };
 
-export default usePreferredColorScheme;
+export default useClientPreferences;
