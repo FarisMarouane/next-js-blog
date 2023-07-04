@@ -3,17 +3,15 @@ import { useRouter } from 'next/router';
 import { Montserrat } from 'next/font/google';
 import Link from 'next/link';
 
-import { LanguageContext, ThemeContext } from './ContextProvider';
+import { ThemeContext } from './ContextProvider';
 import styles from '../styles/components/Header.module.css';
 import ToggleInput from './Toggle';
-import Button from './button';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
 const BlogHeader = ({ title }: { title: string }) => {
-  const { pathname } = useRouter();
+  const { pathname, locale } = useRouter();
   const { theme, setTheme } = useContext(ThemeContext);
-  const { language, setLanguage } = useContext(LanguageContext);
 
   const toggleDarkMode = () => {
     const bodyElement = document.querySelector('body');
@@ -29,12 +27,6 @@ const BlogHeader = ({ title }: { title: string }) => {
         setTheme('dark');
       }
     }
-  };
-
-  const onLanguageSelect = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => {
-    setLanguage(e.currentTarget.value as 'eng' | 'fr');
   };
 
   return (
@@ -58,27 +50,25 @@ const BlogHeader = ({ title }: { title: string }) => {
           onChange={toggleDarkMode}
         />
         <div className={styles.langButtons}>
-          <Button
-            selected={language === 'eng'}
-            onClick={onLanguageSelect}
-            value="eng"
-            className={`${styles.langButton} ${
-              language === 'eng' && styles.langButtonSelected
+          <Link
+            locale="en"
+            href={pathname}
+            className={` languageLink ${styles.langLink} ${
+              locale === 'en' && styles.langLinkSelected
             }`}
           >
             Eng
-          </Button>
+          </Link>
           <span className={styles.seperator} />
-          <Button
-            selected={language === 'fr'}
-            value="fr"
-            onClick={onLanguageSelect}
-            className={`${styles.langButton} ${
-              language === 'fr' && styles.langButtonSelected
+          <Link
+            locale="fr"
+            href={pathname}
+            className={`languageLink ${styles.langLink} ${
+              locale === 'fr' && styles.langLinkSelected
             }`}
           >
             Fr
-          </Button>
+          </Link>
         </div>
       </div>
     </header>
