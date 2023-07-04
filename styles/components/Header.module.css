@@ -50,15 +50,15 @@
   border: 1px var(--primary) solid;
 }
 
-.langButton {
+.langLink {
   width: 35px;
   all: unset;
 }
 
-.langButton:not(.langButtonSelected):hover {
+.langLink:not(.langLinkSelected):hover {
   color: var(--langButtonHover);
 }
 
-.langButtonSelected {
+.langLinkSelected {
   color: var(--selectedLangButton);
 }
