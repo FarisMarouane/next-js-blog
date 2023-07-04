@@ -1,40 +1,60 @@
 import path from 'path';
 import fs from 'fs';
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 import matter from 'gray-matter';
+
 import markdownToHtml from '../utils/markdownToHtml';
 import PostBody from '../components/PostBody';
 import Footer from '../components/Footer';
+import { getI18nText } from '../utils/getI18nText';
 
 const resumeFileName = 'about_me';
 
-export async function getStaticProps() {
+type Props = {
+  locale?: string;
+  articleContent: string;
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const resumeDir = path.join(
     path.join(process.cwd(), 'data'),
-    `${resumeFileName}.md`,
+    `${resumeFileName}.${locale}.md`,
   );
   const source = fs.readFileSync(resumeDir);
   const { content } = matter(source);
 
   const htmlContent = await markdownToHtml(content);
 
-  return { props: { articleContent: htmlContent } };
-}
+  return { props: { articleContent: htmlContent, locale } };
+};
 
-const Article = ({ articleContent }: { articleContent: string }) => {
+const Home = ({
+  articleContent,
+  locale,
+}: {
+  articleContent: string;
+  locale: 'en' | 'fr';
+}) => {
   return (
     <>
       <Head>
-        <title>About me</title>
+        <title>{getI18nText('home_head_title', locale)}</title>
         <meta name="author" content="Marouane Faris" />
         <meta
           name="description"
-          content="Hello There, my name is Marouane and I am a React JS expert with 5 years of experience in frontend web developement"
+          content={getI18nText('home_meta_description', locale)}
         />
         <meta property="og:url" content="https://www.marouanefaris.dev" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="About me" />
-        <meta property="og:description" content="About me" />
+        <meta
+          property="og:title"
+          content={getI18nText('home_head_title', locale)}
+        />
+        <meta
+          property="og:description"
+          content={getI18nText('home_head_title', locale)}
+        />
         <meta property="og:image" content="/photo_linkedin.jpeg" />
       </Head>
       <main>
@@ -47,4 +67,4 @@ const Article = ({ articleContent }: { articleContent: string }) => {
   );
 };
 
-export default Article;
+export default Home;
