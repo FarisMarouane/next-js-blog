@@ -10,7 +10,7 @@ import ToggleInput from './Toggle';
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
 const BlogHeader = ({ title }: { title: string }) => {
-  const { pathname, locale } = useRouter();
+  const { pathname, locale, query } = useRouter();
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleDarkMode = () => {
@@ -52,7 +52,7 @@ const BlogHeader = ({ title }: { title: string }) => {
         <div className={styles.langButtons}>
           <Link
             locale="en"
-            href={pathname}
+            href={{ pathname, query }}
             className={` languageLink ${styles.langLink} ${
               locale === 'en' && styles.langLinkSelected
             }`}
@@ -62,7 +62,7 @@ const BlogHeader = ({ title }: { title: string }) => {
           <span className={styles.seperator} />
           <Link
             locale="fr"
-            href={pathname}
+            href={{ pathname, query }}
             className={`languageLink ${styles.langLink} ${
               locale === 'fr' && styles.langLinkSelected
             }`}

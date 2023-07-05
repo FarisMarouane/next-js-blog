@@ -7,6 +7,7 @@ import readingTime from 'reading-time';
 export interface IFrontmatterType {
   id: number;
   date: string;
+  lang: 'en' | 'fr';
   lastModified?: string;
   title: string;
   metatitle: string;
@@ -27,9 +28,9 @@ interface IArticle {
 
 const articlesPath = path.join(process.cwd(), 'data/blog');
 
-export function getArticleFromSlug(slug: string): IArticle {
-  const articleDir = path.join(articlesPath, `${slug}.md`);
-  const source = fs.readFileSync(articleDir);
+export function getArticleFromSlug(locale: string, slug: string): IArticle {
+  const articlePath = path.join(articlesPath, locale, `${slug}.md`);
+  const source = fs.readFileSync(articlePath);
   const { content, data } = matter(source);
 
   return {
@@ -45,26 +46,79 @@ export function getArticleFromSlug(slug: string): IArticle {
   };
 }
 
-export function getAllArticlesMetadata(): IArticleMetaData[] {
-  const articles = fs.readdirSync(path.join(process.cwd(), 'data/blog'));
+export function getAllArticlesMetadata(locale = ''): IArticleMetaData[] {
+  debugger;
 
-  return articles.reduce(
-    (allArticlesMetadata: IArticleMetaData[], currentArticle: string) => {
-      const source = fs.readFileSync(
-        path.join(process.cwd(), 'data/blog', currentArticle),
-        'utf-8',
-      );
-      const { data } = matter(source);
+  // Return all articles metadata, in all lang,
+  if (!locale) {
+    const englishArticlesMeta = fs
+      .readdirSync(path.join(articlesPath, 'en'))
+      .reduce(
+        (allArticlesMetadata: IArticleMetaData[], currentArticle: string) => {
+          const source = fs.readFileSync(
+            path.join(articlesPath, 'en', currentArticle),
+            'utf-8',
+          );
+          const { data } = matter(source);
 
-      return [
-        {
-          ...(data as IFrontmatterType),
-          slug: currentArticle.replace('.md', ''),
-          readingTime: readingTime(source).text,
+          return [
+            {
+              ...(data as IFrontmatterType),
+              slug: currentArticle.replace(/.md/, ''),
+              readingTime: readingTime(source).text,
+            },
+            ...allArticlesMetadata,
+          ];
         },
-        ...allArticlesMetadata,
-      ];
-    },
-    [],
-  );
+        [],
+      );
+
+    const frenchArticlesMeta = fs
+      .readdirSync(path.join(articlesPath, 'fr'))
+      .reduce(
+        (allArticlesMetadata: IArticleMetaData[], currentArticle: string) => {
+          const source = fs.readFileSync(
+            path.join(articlesPath, 'fr', currentArticle),
+            'utf-8',
+          );
+          const { data } = matter(source);
+
+          return [
+            {
+              ...(data as IFrontmatterType),
+              slug: currentArticle.replace(/.md/, ''),
+              readingTime: readingTime(source).text,
+            },
+            ...allArticlesMetadata,
+          ];
+        },
+        [],
+      );
+
+    return [...englishArticlesMeta, ...frenchArticlesMeta];
+
+    // Return metadata only of articles in locale lang
+  } else {
+    return fs
+      .readdirSync(path.join(articlesPath, locale))
+      .reduce(
+        (allArticlesMetadata: IArticleMetaData[], currentArticle: string) => {
+          const source = fs.readFileSync(
+            path.join(articlesPath, locale, currentArticle),
+            'utf-8',
+          );
+          const { data } = matter(source);
+
+          return [
+            {
+              ...(data as IFrontmatterType),
+              slug: currentArticle.replace(/.md/, ''),
+              readingTime: readingTime(source).text,
+            },
+            ...allArticlesMetadata,
+          ];
+        },
+        [],
+      );
+  }
 }

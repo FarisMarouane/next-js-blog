@@ -1,6 +1,7 @@
 ---
-id: 1
+id: 0
 title: "Playing around with Next JS app directory and React Server Components"
+lang: "en"
 date: '2023-06-27'
 lastModified: '2023-06-30'
 metaTitle: "React Server Components"
