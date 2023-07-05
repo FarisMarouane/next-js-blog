@@ -62,7 +62,7 @@ const Home = ({
           <PostBody content={articleContent} />
         </article>
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 };
