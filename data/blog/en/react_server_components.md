@@ -77,9 +77,9 @@ export default Article;
 
 I personally refactored my blog (the one you are visiting right now !) to the new Next JS app directory, where all React components are RSCs by default. You can visit the version that uses the app directory at this [link](https://staging.marouanefaris.dev/), and I must say I didn't see any tangible benefits.
 
- There could be two explanations for this:
+ There could be (at least) two explanations for this:
 
-- my website isn't big/complex enough for the benefits to be visible
+- My website isn't big/complex enough for the benefits to be visible
 - I didn't implement RSCs correctly 🤷
 
 &nbsp;
