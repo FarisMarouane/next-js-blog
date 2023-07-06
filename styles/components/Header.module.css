@@ -55,10 +55,16 @@
   all: unset;
 }
 
+.langLink:not(.langLinkSelected):focus {
+  color: var(--langButtonHover);
+}
+
 .langLink:not(.langLinkSelected):hover {
   color: var(--langButtonHover);
 }
 
 .langLinkSelected {
   color: var(--selectedLangButton);
+  cursor: none;
+  pointer-events: none;
 }
