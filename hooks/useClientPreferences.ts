@@ -1,13 +1,14 @@
 import { useContext, useEffect } from 'react';
 import { ThemeContext, ThemeType } from '../components/ContextProvider';
 
-const usePreferredColorScheme = () => {
+const useClientPreferences = () => {
   const { setTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const localStorageTheme = window.localStorage.getItem(
       'color-scheme',
     ) as ThemeType | null;
+
     const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
     const bodyElement = document.querySelector('body');
 
@@ -45,4 +46,4 @@ const usePreferredColorScheme = () => {
   }, [setTheme]);
 };
 
-export default usePreferredColorScheme;
+export default useClientPreferences;

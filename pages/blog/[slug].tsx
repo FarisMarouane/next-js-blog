@@ -12,19 +12,27 @@ import styles from '../../styles/components/Article.module.css';
 import ArticleNavigation, {
   IArticleLink,
 } from '../../components/ArticleNavigation';
+import { useRouter } from 'next/router';
+import { getI18nText } from '../../utils/getI18nText';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
 interface IArticleProps {
   articleContent: string;
   frontmatter: IFrontmatterType;
-  articlesMetadata: { slug: string; id: number; title: string }[];
+  articlesMetadata: { slug: string; id: number; title: string; lang: string }[];
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
+export const getStaticProps = async ({
+  params,
+  locale,
+}: {
+  params: { slug: string };
+  locale: 'en' | 'fr';
+}) => {
   const { slug } = params;
-  const { content, frontmatter } = getArticleFromSlug(slug);
-  const articlesMetadata = getAllArticlesMetadata();
+  const { content, frontmatter } = getArticleFromSlug(locale, slug);
+  const articlesMetadata = getAllArticlesMetadata(locale);
 
   const htmlContent = await markdownToHtml(content);
 
@@ -33,21 +41,25 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
       articleContent: htmlContent,
       frontmatter,
       articlesMetadata: articlesMetadata
-        .map(({ slug, id, title }) => ({
+        .map(({ slug, id, title, lang }) => ({
           slug,
           id,
           title,
+          lang,
         }))
         .sort((a, b) => a.id - b.id),
     },
   };
-}
+};
 
 export function getStaticPaths() {
   const articlesMetadata = getAllArticlesMetadata();
 
   return {
-    paths: articlesMetadata.map(({ slug }) => ({ params: { slug } })),
+    paths: articlesMetadata.map(({ slug, lang }) => ({
+      params: { slug },
+      locale: lang,
+    })),
     fallback: false,
   };
 }
@@ -57,11 +69,30 @@ const Article = ({
   frontmatter,
   articlesMetadata,
 }: IArticleProps) => {
+  const { locale } = useRouter();
+
   const { id: currentArticleId } = frontmatter;
+
+  const filteredArticlesMetadata = articlesMetadata.filter(
+    (a) => a.lang === locale,
+  );
+
+  const getLastModifiedDate = () => {
+    if (frontmatter.lastModified) {
+      return (
+        <span>
+          &nbsp;&bull;&nbsp;
+          {`${getI18nText('blog_article_last_modified', locale as 'en' | 'fr')}:
+          ${frontmatter.lastModified}`}
+        </span>
+      );
+    }
+    return;
+  };
 
   let articlesLinks: IArticleLink[] = [];
 
-  for (const articleMetadata of articlesMetadata) {
+  for (const articleMetadata of filteredArticlesMetadata) {
     // previous article
     if (articleMetadata.id + 1 === currentArticleId) {
       articlesLinks.push({
@@ -100,7 +131,7 @@ const Article = ({
               {dayjs(frontmatter.date).format('MMMM D, YYYY')}
               &nbsp;&bull;&nbsp;
               {frontmatter.readingTime}
-              &nbsp; (last modified: {frontmatter.lastModified})
+              {getLastModifiedDate()}
             </small>
           </header>
           <PostBody content={articleContent} />

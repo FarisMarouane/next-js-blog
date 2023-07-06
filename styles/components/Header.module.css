@@ -30,3 +30,41 @@
 .tertiaryTitle a {
   color: var(--textTitle);
 }
+
+.controlGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.langButtons {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  cursor: pointer;
+}
+
+.seperator {
+  height: 60%;
+  width: 1px;
+  border: 1px var(--primary) solid;
+}
+
+.langLink {
+  width: 35px;
+  all: unset;
+}
+
+.langLink:not(.langLinkSelected):focus {
+  color: var(--langButtonHover);
+}
+
+.langLink:not(.langLinkSelected):hover {
+  color: var(--langButtonHover);
+}
+
+.langLinkSelected {
+  color: var(--selectedLangButton);
+  cursor: none;
+  pointer-events: none;
+}

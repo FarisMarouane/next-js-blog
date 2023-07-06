@@ -2,7 +2,7 @@ import Script from 'next/script';
 import { Merriweather } from 'next/font/google';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import ThemeContextProvider from '../components/ContextProvider';
+import ContextProvider from '../components/ContextProvider';
 import Layout from '../components/Layout';
 import ErrorBoundary from '../components/ErrorBoundary';
 import '../styles/globals.css';
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <ThemeContextProvider>
+      <ContextProvider>
         <Layout>
           <>
             <Script
@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
             </ErrorBoundary>
           </>
         </Layout>
-      </ThemeContextProvider>
+      </ContextProvider>
     </>
   );
 }

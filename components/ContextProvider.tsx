@@ -5,6 +5,7 @@ import {
   SetStateAction,
   useEffect,
   useState,
+  useMemo,
 } from 'react';
 
 export type ThemeType = 'light' | 'dark' | undefined;
@@ -13,23 +14,27 @@ export type ThemeContextType = {
   setTheme: Dispatch<SetStateAction<ThemeType>>;
 };
 
+export type LanguageType = 'eng' | 'fr' | undefined;
+
 export const ThemeContext = createContext<ThemeContextType>({
   theme: 'light',
   setTheme: () => undefined,
 });
 
-const ThemeContextProvider = ({ children }: { children: ReactElement }) => {
+const ContextProvider = ({ children }: { children: ReactElement }) => {
   const [theme, setTheme] = useState<ThemeType>(undefined);
+
+  const themeContextValue = useMemo(() => ({ theme, setTheme }), [theme]);
 
   useEffect(() => {
     if (theme) window.localStorage.setItem('color-scheme', theme);
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={themeContextValue}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
-export default ThemeContextProvider;
+export default ContextProvider;

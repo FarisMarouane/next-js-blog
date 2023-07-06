@@ -1,0 +1,16 @@
+{
+  "home_head_title": "À propos",
+  "home_meta_description": "Bonjour, je m'appelle Marouane et je suis un développeur Fullstack Javascript, expert sur React JS, avec plus de 5 ans d'expérience dans le développement web.",
+
+  "blog_meta_description": "Blog de Marouane Faris, généré grâce à Next JS",
+  "blog_og_title": "Blog personnel de Marouane Faris",
+  "blog_og_description": "Blog de Marouane Faris, généré grâce à Next JS",
+
+  "blog_article_last_modified": "Dernière modification",
+
+  "aside_text_0": "Blog personnel de",
+  "aside_text_1": "Les idées exprimées sur ce blog sont strictement personnelles.",
+  "aside_text_2": "Réalisé avec le framework",
+
+  "footer_about_me": "À propos"
+}

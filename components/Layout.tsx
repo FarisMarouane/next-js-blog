@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import styles from '../styles/components/Layout.module.css';
 import BlogHeader from './BlogHeader';
-import usePreferredColorScheme from '../hooks/usePreferredColorScheme';
+import useClientPreferences from '../hooks/useClientPreferences';
 
 const Layout = ({ children }: { children: ReactElement }) => {
-  usePreferredColorScheme();
+  useClientPreferences();
 
   return (
     <div className={styles.layout}>

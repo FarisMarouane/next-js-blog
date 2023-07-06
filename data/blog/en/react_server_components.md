@@ -1,6 +1,7 @@
 ---
-id: 1
+id: 0
 title: "Playing around with Next JS app directory and React Server Components"
+lang: "en"
 date: '2023-06-27'
 lastModified: '2023-06-30'
 metaTitle: "React Server Components"
@@ -17,7 +18,9 @@ Here's an example of a RSC in the context of a Next JS app (using the [new app d
 
 ```
 export default async function Page() {
-  const articleContent = await getArticleContent();
+  const DB = new Client();
+  {/* Direct access to the database from inside the component, without going through an API call*/}
+  const articleContent = await DB.getArticleContent(); 
   return <Article articleContent={articleContent} />;
 }
 ```
@@ -39,7 +42,7 @@ For the most part, it looks like a regular React component, except that if neede
 - They can't use browser APIs as they are rendered on the server
 - They can't use event handlers like onClick
 - They  add more complexity to the codebase (although, at least from what I saw so far, this added complexity is limited)
-- In my opinion, and this is their major drawback, they don't seem to be production ready yet. The specifications are very recent and are probably going to change significantly in the future
+- In my opinion, and this is their major drawback, they don't seem to be production ready yet. The specifications are very recent and are probably going to change significantly in the future. Furthermore, some popular libraries, like react-redux, still don't have RSCs support.
 
 &nbsp;
 
