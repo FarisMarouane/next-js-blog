@@ -18,7 +18,9 @@ Here's an example of a RSC in the context of a Next JS app (using the [new app d
 
 ```
 export default async function Page() {
-  const articleContent = await getArticleContent();
+  const DB = new Client();
+  {/* Direct access to the database from inside the component, without going through an API call*/}
+  const articleContent = await DB.getArticleContent(); 
   return <Article articleContent={articleContent} />;
 }
 ```
@@ -40,7 +42,7 @@ For the most part, it looks like a regular React component, except that if neede
 - They can't use browser APIs as they are rendered on the server
 - They can't use event handlers like onClick
 - They  add more complexity to the codebase (although, at least from what I saw so far, this added complexity is limited)
-- In my opinion, and this is their major drawback, they don't seem to be production ready yet. The specifications are very recent and are probably going to change significantly in the future
+- In my opinion, and this is their major drawback, they don't seem to be production ready yet. The specifications are very recent and are probably going to change significantly in the future. Furthermore, some popular libraries, like react-redux, still don't have RSCs support.
 
 &nbsp;
 
@@ -84,7 +86,7 @@ I personally refactored my blog (the one you are visiting right now !) to the ne
 
 ## Conclusion
 
-All in all, with RSCs and I wouldn't use React Server Components in a production app yet, as I don't think the specifications are stable enough. But they seem very promising because, in theory, they will allow us, when they are ready, to significantly reduce the size of the javascript we developers send to the client with traditional React apps.
+All in all, I wouldn't use React Server Components in a production app yet, as I don't think the specifications are stable enough. But they seem very promising because, in theory, they will allow us, when they are ready, to significantly reduce the size of the javascript we developers send to the client with traditional React apps.
 
 If you are interested to know more about RSCs, you can watch this [talk](https://www.youtube.com/watch?v=TQQPAU21ZUw&t=3276s) by Dan Abramov and Laura Tan from the React Team at Meta. 
 
