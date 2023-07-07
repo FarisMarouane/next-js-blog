@@ -28,9 +28,7 @@ const ArticlePreview = ({
         {publicationDate}&nbsp;&bull;&nbsp;{readingTime}
       </small>
       <p className={`${styles.articlePreview} articlePreview`}>{description}</p>
-      <Link className="articlePreviewLink" href={`/blog/${slug}`}>
-        {title}
-      </Link>
+      <Link className="articlePreviewLink" href={`/blog/${slug}`} />
     </article>
   );
 };
