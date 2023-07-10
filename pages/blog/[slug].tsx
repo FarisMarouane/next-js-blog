@@ -30,6 +30,7 @@ export const getStaticProps = async ({
   params: { slug: string };
   locale: 'en' | 'fr';
 }) => {
+  console.log('getStaticProps got called');
   const { slug } = params;
   const { content, frontmatter } = getArticleFromSlug(locale, slug);
   const articlesMetadata = getAllArticlesMetadata(locale);
@@ -56,12 +57,17 @@ export function getStaticPaths() {
   const articlesMetadata = getAllArticlesMetadata();
 
   return {
-    paths: articlesMetadata.map(({ slug, lang }) => ({
-      params: { slug },
-      locale: lang,
-    })),
-    fallback: false,
+    paths: [{ params: { slug: 'react_server_components' }, locale: 'en' }],
+    fallback: 'blocking',
   };
+
+  // return {
+  //   paths: articlesMetadata.map(({ slug, lang }) => ({
+  //     params: { slug },
+  //     locale: lang,
+  //   })),
+  //   fallback: false,
+  // };
 }
 
 const Article = ({
