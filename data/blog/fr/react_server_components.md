@@ -2,8 +2,8 @@
 id: 1
 title: "Exploration du Next JS app directory et des React Server Components"
 lang: "fr"
-date: '2023-07-11'
-lastModified: '2023-07-06'
+date: '2023-07-03'
+lastModified: '2023-07-11'
 metaTitle: "React Server Components"
 metaDesc: "Qu'est-ce que les composants serveur React et comment pouvons-nous les utiliser pour améliorer nos applications React ?"
 ---
