@@ -1,7 +1,7 @@
-import { useContext, useRef } from 'react';
+import { RefObject, useContext, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { Montserrat } from 'next/font/google';
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 
 import { ThemeContext } from './ContextProvider';
 import styles from '../styles/components/Header.module.css';
@@ -32,6 +32,15 @@ const BlogHeader = ({ title }: { title: string }) => {
     }
   };
 
+  const onLangClick = (
+    ref: RefObject<HTMLAnchorElement>,
+    lang: 'en' | 'fr',
+  ) => {
+    ref.current?.blur();
+    // NEXT_LOCALE cookie; see => https://nextjs.org/docs/pages/building-your-application/routing/internationalization#leveraging-the-next_locale-cookie
+    document.cookie = `NEXT_LOCALE=${lang}; path=/; max-age=2592000`; // 2592000 is 1 month in seconds
+  };
+
   return (
     <header className={`${styles.header} ${font.className}`}>
       {pathname === '/' ? (
@@ -54,7 +63,7 @@ const BlogHeader = ({ title }: { title: string }) => {
         />
         <div className={styles.langButtons}>
           <Link
-            onClick={() => enLinkRef.current?.blur()}
+            onClick={() => onLangClick(enLinkRef, 'en')}
             ref={enLinkRef}
             aria-disabled={locale === 'en'}
             tabIndex={locale === 'en' ? -1 : 0}
@@ -68,7 +77,7 @@ const BlogHeader = ({ title }: { title: string }) => {
           </Link>
           <span className={styles.seperator} />
           <Link
-            onClick={() => frLinkRef.current?.blur()}
+            onClick={() => onLangClick(frLinkRef, 'fr')}
             ref={frLinkRef}
             aria-disabled={locale === 'fr'}
             tabIndex={locale === 'fr' ? -1 : 0}
