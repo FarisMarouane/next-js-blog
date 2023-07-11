@@ -3,7 +3,7 @@ id: 0
 title: "Playing around with Next JS app directory and React Server Components"
 lang: "en"
 date: '2023-06-27'
-lastModified: '2023-06-30'
+lastModified: '2023-07-11'
 metaTitle: "React Server Components"
 metaDesc: "What are Server Components and how can we use them to improve our React apps ?"
 ---
@@ -88,6 +88,13 @@ I personally refactored my blog (the one you are visiting right now !) to the ne
 
 All in all, I wouldn't use React Server Components in a production app yet, as I don't think the specifications are stable enough. But they seem very promising because, in theory, they will allow us, when they are ready, to significantly reduce the size of the javascript we developers send to the client with traditional React apps.
 
-If you are interested to know more about RSCs, you can watch this [talk](https://www.youtube.com/watch?v=TQQPAU21ZUw&t=3276s) by Dan Abramov and Laura Tan from the React Team at Meta. 
+## Ressources
 
-You can also read this article from freecodecamp for a quick overview of RSCs: [article](https://www.freecodecamp.org/news/react-server-components-for-beginners/)
+If you are interested in knowing more about RSCs, here's a list of ressources that helped me wrap my head around them and write this article:
+
+- A talk by Dan Abramov and Laura Tan from the React Team at Meta: [Data Fetching with React Server Components](https://www.youtube.com/watch?v=TQQPAU21ZUw&t=3276s)
+
+- You can also read this article from freecodecamp for a quick overview of RSCs: [How to Use React Server Components – A Beginner's Guide](https://www.freecodecamp.org/news/react-server-components-for-beginners/)
+
+- An RFC (request for comments) by Lenz Weber-Tronic (phryneas), a senior staff software engineer at Apollo GraphQL and co-maintainer of Redux Toolkit: [The Next.js "App Router", React Server Component & "SSR with Suspense" story
+](https://github.com/apollographql/apollo-client-nextjs/blob/pr/RFC-2/RFC.md)

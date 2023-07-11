@@ -2,7 +2,7 @@
 id: 1
 title: "Exploration du Next JS app directory et des React Server Components"
 lang: "fr"
-date: '2023-07-03'
+date: '2023-07-11'
 lastModified: '2023-07-06'
 metaTitle: "React Server Components"
 metaDesc: "Qu'est-ce que les composants serveur React et comment pouvons-nous les utiliser pour améliorer nos applications React ?"
@@ -90,3 +90,14 @@ Dans l'ensemble, je n'utiliserais pas encore les React Server Components dans un
 Si vous souhaitez en savoir plus sur les RSC, vous pouvez regarder cette [présentation](https://www.youtube.com/watch?v=TQQPAU21ZUw&t=3276s) de Dan Abramov et Laura Tan de l'équipe React chez Meta.
 
 Vous pouvez également lire cet article de freecodecamp pour obtenir un aperçu rapide des RSC : [article](https://www.freecodecamp.org/news/react-server-components-for-beginners/)
+
+## Ressources
+
+Si vous êtes intéressé d'en en savoir plus sur les RSCs (React Server Components), voici une liste de ressources qui m'ont aidé à les comprendre et à rédiger cet article :
+
+- Une présentation de Dan Abramov et Laura Tan de l'équipe React chez Meta : [Data Fetching with React Server Components](https://www.youtube.com/watch?v=TQQPAU21ZUw&t=3276s)
+
+- Vous pouvez également lire cet article de freecodecamp pour avoir une vue d'ensemble rapide des RSCs : [How to Use React Server Components – A Beginner's Guide](https://www.freecodecamp.org/news/react-server-components-for-beginners/)
+
+- Une RFC (request for comments) rédigée par Lenz Weber-Tronic (phryneas), un développeur senior chez Apollo GraphQL et co-mainteneur de Redux Toolkit : [The Next.js "App Router", React Server Component & "SSR with Suspense" story
+](https://github.com/apollographql/apollo-client-nextjs/blob/pr/RFC-2/RFC.md)
