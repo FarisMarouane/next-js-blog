@@ -1,0 +1,4 @@
+.postBody pre:has(> code) {
+    overflow-y: auto;
+  }
+

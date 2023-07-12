@@ -1,7 +1,12 @@
+import style from '../styles/components/PostBody.module.css';
+
 const PostBody = ({ content }: { content: string }) => {
   return (
     <div>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div
+        className={style.postBody}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 };
