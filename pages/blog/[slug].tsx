@@ -60,14 +60,6 @@ export function getStaticPaths() {
     paths: [{ params: { slug: 'react_server_components' }, locale: 'en' }],
     fallback: 'blocking',
   };
-
-  // return {
-  //   paths: articlesMetadata.map(({ slug, lang }) => ({
-  //     params: { slug },
-  //     locale: lang,
-  //   })),
-  //   fallback: false,
-  // };
 }
 
 const Article = ({

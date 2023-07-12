@@ -23,6 +23,7 @@ export default async function Page() {
   const articleContent = await DB.getArticleContent(); 
   return <Article articleContent={articleContent} />;
 }
+
 ```
 
 For the most part, it looks like a regular React component, except that if needed you can now use the async/await syntax to fetch data inside the component (among other differences that we will see further in this article). 
