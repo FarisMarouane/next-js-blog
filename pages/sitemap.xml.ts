@@ -11,10 +11,11 @@ function generateSiteMap(posts: IArticleMetaData[]) {
        <loc>https://www.marouanefaris.dev/blog</loc>
      </url>
      ${posts
-       .map(({ slug }) => {
+       .map(({ slug, lang, lastModified }) => {
          return `
        <url>
-           <loc>${`https://www.marouanefaris.dev/blog/${slug}`}</loc>
+           <loc>${`https://www.marouanefaris.dev/${lang}/blog/${slug}`}</loc>
+           ${lastModified ? `<lastmod>${lastModified}</lastmod>` : ''}
        </url>
      `;
        })
