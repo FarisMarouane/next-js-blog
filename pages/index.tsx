@@ -49,11 +49,11 @@ const Home = ({
         <meta property="og:type" content="profile" />
         <meta
           property="og:title"
-          content={getI18nText('home_head_title', locale)}
+          content={getI18nText('home_og_title', locale)}
         />
         <meta
           property="og:description"
-          content={getI18nText('home_head_title', locale)}
+          content={getI18nText('home_og_description', locale)}
         />
         <meta property="og:image" content="/photo_linkedin.jpeg" />
       </Head>
