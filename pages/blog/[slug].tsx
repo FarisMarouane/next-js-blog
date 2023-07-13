@@ -121,6 +121,13 @@ const Article = ({
         <meta property="og:title" content={`${frontmatter.title}`} />
         <meta property="og:image" content="/photo_linkedin.jpeg" />
         <meta property="og:description" content={`${frontmatter.metaDesc}`} />
+        <meta
+          property="twitter:image"
+          content="https://www.marouanefaris.dev/photo_linkedin.jpeg"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="https://www.marouanefaris.dev" />
+        <meta name="twitter:creator" content="@MarouaneFaris1" />
       </Head>
       <main>
         <article>
