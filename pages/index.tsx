@@ -46,7 +46,7 @@ const Home = ({
           content={getI18nText('home_meta_description', locale)}
         />
         <meta property="og:url" content="https://www.marouanefaris.dev" />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="profile" />
         <meta
           property="og:title"
           content={getI18nText('home_head_title', locale)}

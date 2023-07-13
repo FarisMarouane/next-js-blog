@@ -116,8 +116,10 @@ const Article = ({
           property="og:url"
           content={`https://www.marouanefaris.dev/blog/${frontmatter.slug}`}
         />
+        <meta property="og:site_name" content="marouanefaris.dev" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${frontmatter.title}`} />
+        <meta property="og:image" content="/photo_linkedin.jpeg" />
         <meta property="og:description" content={`${frontmatter.metaDesc}`} />
       </Head>
       <main>

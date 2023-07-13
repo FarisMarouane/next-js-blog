@@ -27,7 +27,8 @@ export default function Blog({
           name="description"
           content={getI18nText('blog_meta_description', locale)}
         />
-        <meta property="og:url" content="https://www.marouanefaris.dev/" />
+        <meta property="og:url" content="https://www.marouanefaris.dev/blog" />
+        <meta property="og:site_name" content="marouanefaris.dev" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
