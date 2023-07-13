@@ -55,7 +55,17 @@ const Home = ({
           property="og:description"
           content={getI18nText('home_og_description', locale)}
         />
-        <meta property="og:image" content="/photo_linkedin.jpeg" />
+        <meta
+          property="og:image"
+          content="https://www.marouanefaris.dev/photo_linkedin.jpeg"
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.marouanefaris.dev/photo_linkedin.jpeg"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="https://www.marouanefaris.dev" />
+        <meta name="twitter:creator" content="@MarouaneFaris1" />
       </Head>
       <main>
         <article>
