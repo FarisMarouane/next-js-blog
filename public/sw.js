@@ -5,6 +5,10 @@ async function cache(request, response) {
     return Promise.resolve(); // do not put in cache network errors
   }
 
+  if (request.method === 'POST' || request.method === 'HEAD') {
+    return Promise.resolve();
+  }
+
   try {
     const cache = await caches.open(CACHE_NAME);
     return await cache.put(request, response.clone());
