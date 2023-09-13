@@ -1,13 +1,5 @@
 const CACHE_NAME = 'v1';
 
-async function respondFromCache(event) {
-  const cachedResponse = await caches.match(event.request);
-
-  if (cachedResponse) return cachedResponse;
-
-  return undefined;
-}
-
 async function cache(request, response) {
   if (response.type === 'error' || response.type === 'opaque') {
     return Promise.resolve(); // do not put in cache network errors
