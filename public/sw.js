@@ -1,11 +1,11 @@
-const CACHE_NAME = 'v1';
+const CACHE_NAME = "v1";
 
 async function cache(request, response) {
-  if (response.type === 'error' || response.type === 'opaque') {
+  if (response.type === "error" || response.type === "opaque") {
     return Promise.resolve(); // do not put in cache network errors
   }
 
-  if (request.method === 'POST' || request.method === 'HEAD') {
+  if (request.method === "POST" || request.method === "HEAD") {
     return Promise.resolve();
   }
 
@@ -37,7 +37,7 @@ async function cache(request, response) {
 //   );
 // });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       // Attempt to fetch the ressource
@@ -48,18 +48,31 @@ self.addEventListener('fetch', (event) => {
         return fetchResponse;
       } catch (error) {
         // No internet connection or fetch error => Response with cached ressource if it exists
-        console.log('Error fetching the request', event.request.url);
+        console.log("Error fetching the request", event.request.url);
 
         const cachedResponse = await caches.match(event.request);
 
         if (!cachedResponse) {
           Promise.reject(
-            `No cache was found for the request:  ${event.request.url}`,
+            `No cache was found for the request:  ${event.request.url}`
           );
         }
 
         return cachedResponse;
       }
-    })(),
+    })()
   );
+});
+
+const showLocalNotification = (title, body, swRegistration) => {
+  swRegistration.showNotification(title, {
+    body,
+  });
+};
+
+self.addEventListener("push", async (event) => {
+  if (event.data) {
+    const eventData = await event.data.json();
+    showLocalNotification(eventData.title, eventData.body, self.registration);
+  }
 });
