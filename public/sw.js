@@ -1,11 +1,11 @@
-const CACHE_NAME = 'v1';
+const CACHE_NAME = "v1";
 
 async function cache(request, response) {
-  if (response.type === 'error' || response.type === 'opaque') {
+  if (response.type === "error" || response.type === "opaque") {
     return Promise.resolve(); // do not put in cache network errors
   }
 
-  if (request.method === 'POST' || request.method === 'HEAD') {
+  if (request.method === "POST" || request.method === "HEAD") {
     return Promise.resolve();
   }
 
@@ -13,7 +13,8 @@ async function cache(request, response) {
     const cache = await caches.open(CACHE_NAME);
     return await cache.put(request, response.clone());
   } catch (error) {
-    console.log(`Error caching ${request.url}: ${error}`);
+    if (process.env.NODE_ENV === "production") return;
+    console.error(`Error caching ${request.url}: ${error}`);
   }
 }
 
@@ -37,7 +38,7 @@ async function cache(request, response) {
 //   );
 // });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       // Attempt to fetch the ressource
@@ -47,19 +48,20 @@ self.addEventListener('fetch', (event) => {
         await cache(event.request, fetchResponse);
         return fetchResponse;
       } catch (error) {
+        if (process.env.NODE_ENV === "production") return;
         // No internet connection or fetch error => Response with cached ressource if it exists
-        console.log('Error fetching the request', event.request.url);
+        console.error("Error fetching the request", event.request.url);
 
         const cachedResponse = await caches.match(event.request);
 
         if (!cachedResponse) {
           Promise.reject(
-            `No cache was found for the request:  ${event.request.url}`,
+            `No cache was found for the request:  ${event.request.url}`
           );
         }
 
         return cachedResponse;
       }
-    })(),
+    })()
   );
 });

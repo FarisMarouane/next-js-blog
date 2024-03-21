@@ -17,13 +17,17 @@ export default function App({ Component, pageProps }: AppProps) {
       navigator.serviceWorker
         .register("/sw.js")
         .then((serviceWorker) => {
+          if (process.env.NODE_ENV === "production") return;
+          // eslint-disable-next-line no-console
           console.log("Service Worker registered: ", serviceWorker);
         })
         .catch((error) => {
+          if (process.env.NODE_ENV === "production") return;
           console.error("Error registering the Service Worker: ", error);
         });
     }
   }, []);
+
   return (
     <>
       <Head>
