@@ -47,7 +47,6 @@ export function getArticleFromSlug(locale: string, slug: string): IArticle {
 }
 
 export function getAllArticlesMetadata(locale = ''): IArticleMetaData[] {
-  debugger;
 
   // Return all articles metadata, in all lang,
   if (!locale) {
