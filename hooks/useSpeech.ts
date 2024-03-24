@@ -8,10 +8,15 @@ const useSpeech = (text: string, locale: string | undefined) => {
 
   useEffect(() => {
     const speechSynthesis = window.speechSynthesis;
+
+    if (!speechSynthesis) {
+      // eslint-disable-next-line no-console
+      console.log("Text-to-speech not supported.");
+      return;
+    }
+
     utteranceRef.current = new SpeechSynthesisUtterance(text);
     utteranceRef.current.lang = locale === "fr" ? "fr-FR" : "en-US";
-
-    if (!speechSynthesis) return;
 
     // Detect change in locale/language
     if (
