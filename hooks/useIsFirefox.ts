@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 
-const useIsFirefox = (): boolean => {
-  const [isFirefox, setIsFirefox] = useState(false);
+const useIsFirefoxOrSafari = (): boolean => {
+  const [isFirefoxOrSafari, setIsFirefoxOrSafari] = useState(false);
 
   useEffect(() => {
     const userAgent = window.navigator.userAgent;
-    setIsFirefox(userAgent.includes("Firefox"));
+    const firefoxOrSafariRegex = /Firefox|Safari/i;
+    setIsFirefoxOrSafari(
+      firefoxOrSafariRegex.test(userAgent) && !/Chrome/i.test(userAgent)
+    );
   }, []);
 
-  return isFirefox;
+  return isFirefoxOrSafari;
 };
 
-export default useIsFirefox;
+export default useIsFirefoxOrSafari;
