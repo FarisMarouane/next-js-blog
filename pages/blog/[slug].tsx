@@ -17,7 +17,7 @@ import ArticleNavigation, {
 import { useRouter } from "next/router";
 import { getI18nText } from "../../utils/getI18nText";
 import useSpeech from "../../hooks/useSpeech";
-import useIsFirefox from "../../hooks/useIsFirefox";
+import useIsChromiumBased from "../../hooks/useIsChromiumBased";
 import useIsMobile from "../../hooks/useIsMobile";
 
 const font = Montserrat({ subsets: ["latin"], weight: "900" });
@@ -117,7 +117,7 @@ const Article = ({
     locale
   );
 
-  const isFirefox = useIsFirefox();
+  const isChromiumBrowser = useIsChromiumBased();
   const isMobile = useIsMobile();
 
   const handleClick = () => {
@@ -152,7 +152,7 @@ const Article = ({
           <header>
             <h1 className={font.className}>
               {frontmatter.title}{" "}
-              {!isMobile && !isFirefox && (
+              {!isMobile && isChromiumBrowser && (
                 <button
                   type="button"
                   className={styles.read_article_button}
