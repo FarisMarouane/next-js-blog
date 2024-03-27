@@ -10,7 +10,7 @@ import {
 } from "../../utils/mdx";
 import markdownToHtml from "../../utils/markdownToHtml";
 import PostBody from "../../components/PostBody";
-import styles from "../../styles/components/Article.module.css";
+import styles from "../../styles/components/Article.module.scss";
 import ArticleNavigation, {
   IArticleLink,
 } from "../../components/ArticleNavigation";
