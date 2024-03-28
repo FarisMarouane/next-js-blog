@@ -23,6 +23,14 @@ import useIsMacOs from "../../hooks/useIsMacOs";
 
 const font = Montserrat({ subsets: ["latin"], weight: "900" });
 
+interface IArticleContainerProps {
+  articleContent: string | undefined;
+  frontmatter: IFrontmatterType | undefined;
+  articlesMetadata:
+    | { slug: string; id: number; title: string; lang: string }[]
+    | undefined;
+}
+
 interface IArticleProps {
   articleContent: string;
   frontmatter: IFrontmatterType;
@@ -37,7 +45,11 @@ export const getStaticProps = async ({
   locale: "en" | "fr";
 }) => {
   const { slug } = params;
-  const { content, frontmatter } = getArticleFromSlug(locale, slug);
+  const article = getArticleFromSlug(locale, slug);
+
+  if (!article) return { notFound: true };
+
+  const { content, frontmatter } = article;
   const articlesMetadata = getAllArticlesMetadata(locale);
 
   const htmlContent = await markdownToHtml(content);
@@ -66,6 +78,22 @@ export function getStaticPaths() {
     fallback: "blocking",
   };
 }
+
+const ArticleContainer = ({
+  articleContent,
+  frontmatter,
+  articlesMetadata,
+}: IArticleContainerProps) => {
+  if (!frontmatter || !articleContent || !articlesMetadata) return null;
+
+  return (
+    <Article
+      articleContent={articleContent}
+      frontmatter={frontmatter}
+      articlesMetadata={articlesMetadata}
+    />
+  );
+};
 
 const Article = ({
   articleContent,
@@ -194,4 +222,4 @@ const Article = ({
   );
 };
 
-export default Article;
+export default ArticleContainer;

@@ -28,9 +28,17 @@ interface IArticle {
 
 const articlesPath = path.join(process.cwd(), 'data/blog');
 
-export function getArticleFromSlug(locale: string, slug: string): IArticle {
+export function getArticleFromSlug(locale: string, slug: string): IArticle | undefined{
   const articlePath = path.join(articlesPath, locale, `${slug}.md`);
-  const source = fs.readFileSync(articlePath);
+
+  let source;
+  try {
+    source = fs.readFileSync(articlePath);
+  } catch (error) {
+    console.error(`Error reading file: ${articlePath}`);
+    return;
+  }
+
   const { content, data } = matter(source);
 
   return {
