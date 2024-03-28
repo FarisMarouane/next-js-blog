@@ -28,4 +28,4 @@ Avant tout, j'aime relever des défis techniques en utilisant mes compétences.
 
 Bien que je me spécialise dans le développement web _frontend_, j'ai également de solides connaissances en développement backend, car j'ai expérimenté avec Node JS et étudié les fondements théoriques des réseaux informatiques.
 
-[Profil LinkedIn](https://www.linkedin.com/in/marouane-faris-1514b970/) &emsp; [Compte Github](https://github.com/FarisMarouane)
+[Profil LinkedIn](https://www.linkedin.com/in/marouane-faris-1514b970/) &emsp; [Profil Malt](https://www.malt.fr/profile/marouanefaris) &emsp; [Compte Github](https://github.com/FarisMarouane)
