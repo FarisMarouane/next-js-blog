@@ -16,5 +16,7 @@
   "aside_text_1": "Les idées exprimées sur ce blog sont strictement personnelles.",
   "aside_text_2": "Réalisé avec le framework",
 
-  "footer_about_me": "À propos"
+  "footer_about_me": "À propos",
+
+  "404_error_message": "Oups, il semblerait que cette page n&apos;existe pas :("
 }

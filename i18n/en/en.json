@@ -16,5 +16,7 @@
   "aside_text_1": "Ideas expressed on this blog are stricly my own, and not those of potential employers.",
   "aside_text_2": "Made using",
 
-  "footer_about_me": "About me"
+  "footer_about_me": "About me",
+
+  "404_error_message": "Oups, it seems like this page doesn't exist :("
 }
