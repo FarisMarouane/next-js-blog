@@ -1,8 +1,13 @@
 {
-	"extends": ["next/core-web-vitals", "prettier"],
-	"rules": {
-		"no-console": ["error", {
-			"allow": ["error"]
-		}]
-	}
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": [
+      "error",
+      {
+        "allow": ["error"]
+      }
+    ]
+  }
 }
