@@ -1,5 +1,5 @@
 import { RefObject, useContext, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { Montserrat } from 'next/font/google';
 import Link from 'next/link';
 
@@ -10,8 +10,10 @@ import { Locale } from '../i18n-config';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
+const locale = 'fr';
+
 const BlogHeader = ({ title }: { title: string }) => {
-  const { pathname, locale, query } = useRouter();
+  const pathname = usePathname();
   const { theme, setTheme } = useContext(ThemeContext);
 
   const enLinkRef = useRef<HTMLAnchorElement>(null);
@@ -66,7 +68,7 @@ const BlogHeader = ({ title }: { title: string }) => {
             aria-disabled={locale === 'en'}
             tabIndex={locale === 'en' ? -1 : 0}
             locale="en"
-            href={{ pathname, query }}
+            href={{ pathname }}
             className={`languageLink ${styles.langLink} ${
               locale === 'en' && styles.langLinkSelected
             }`}
@@ -80,7 +82,7 @@ const BlogHeader = ({ title }: { title: string }) => {
             aria-disabled={locale === 'fr'}
             tabIndex={locale === 'fr' ? -1 : 0}
             locale="fr"
-            href={{ pathname, query }}
+            href={{ pathname }}
             className={`languageLink ${styles.langLink} ${
               locale === 'fr' && styles.langLinkSelected
             }`}

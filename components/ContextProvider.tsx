@@ -1,3 +1,5 @@
+'use client';
+
 import {
   createContext,
   Dispatch,
@@ -13,8 +15,6 @@ export type ThemeContextType = {
   theme: ThemeType;
   setTheme: Dispatch<SetStateAction<ThemeType>>;
 };
-
-export type LanguageType = 'eng' | 'fr' | undefined;
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: 'light',
