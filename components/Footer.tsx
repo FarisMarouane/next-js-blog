@@ -2,8 +2,9 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from '../styles/components/Footer.module.scss';
 import { getI18nText } from '../utils/getI18nText';
+import { Locale } from '../i18n-config';
 
-const Footer = ({ locale }: { locale: 'en' | 'fr' }) => {
+const Footer = ({ locale }: { locale: Locale }) => {
   const { pathname } = useRouter();
   let route;
 

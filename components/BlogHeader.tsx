@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ThemeContext } from './ContextProvider';
 import styles from '../styles/components/Header.module.css';
 import ToggleInput from './Toggle';
+import { Locale } from '../i18n-config';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
@@ -32,10 +33,7 @@ const BlogHeader = ({ title }: { title: string }) => {
     }
   };
 
-  const onLangClick = (
-    ref: RefObject<HTMLAnchorElement>,
-    lang: 'en' | 'fr',
-  ) => {
+  const onLangClick = (ref: RefObject<HTMLAnchorElement>, lang: Locale) => {
     ref.current?.blur();
     // NEXT_LOCALE cookie; see => https://nextjs.org/docs/pages/building-your-application/routing/internationalization#leveraging-the-next_locale-cookie
     document.cookie = `NEXT_LOCALE=${lang}; path=/; max-age=2592000`; // 2592000 is 1 month in seconds

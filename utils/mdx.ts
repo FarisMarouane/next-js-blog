@@ -2,12 +2,13 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import { Locale } from '../i18n-config';
 
 // This type is almost useless because of [key: string]: string | number | undefined;
 export interface IFrontmatterType {
   id: number;
   date: string;
-  lang: 'en' | 'fr';
+  lang: Locale;
   lastModified?: string;
   title: string;
   metatitle: string;
@@ -28,7 +29,10 @@ interface IArticle {
 
 const articlesPath = path.join(process.cwd(), 'data/blog');
 
-export function getArticleFromSlug(locale: string, slug: string): IArticle | undefined{
+export function getArticleFromSlug(
+  locale: string,
+  slug: string,
+): IArticle | undefined {
   const articlePath = path.join(articlesPath, locale, `${slug}.md`);
 
   let source;
@@ -55,7 +59,6 @@ export function getArticleFromSlug(locale: string, slug: string): IArticle | und
 }
 
 export function getAllArticlesMetadata(locale = ''): IArticleMetaData[] {
-
   // Return all articles metadata, in all lang,
   if (!locale) {
     const englishArticlesMeta = fs
