@@ -1,11 +1,13 @@
-import { useRouter } from 'next/router';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../styles/components/Footer.module.scss';
 import { getI18nText } from '../utils/getI18nText';
 import { Locale } from '../i18n-config';
 
 const Footer = ({ locale }: { locale: Locale }) => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   let route;
 
   if (pathname === '/blog') {
