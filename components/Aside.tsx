@@ -3,13 +3,14 @@ import Link from 'next/link';
 
 import styles from '../styles/components/Aside.module.css';
 import { getI18nText } from '../utils/getI18nText';
+import { Locale } from '../i18n-config';
 
-const Aside = ({ locale }: { locale: 'en' | 'fr' }) => {
+const Aside = ({ locale }: { locale: Locale }) => {
   return (
     <aside className={styles.aside}>
       <Image
         className={styles.profile_pic}
-        src="/photo_linkedin.jpeg"
+        src="/images/photo_linkedin.jpeg"
         alt="marouane_faris_profile_pic"
         width={56}
         height={56}

@@ -4,8 +4,9 @@ import Footer from '../components/Footer';
 import { IArticleMetaData, getAllArticlesMetadata } from '../utils/mdx';
 import ArticlePreview from '../components/ArticlePreview';
 import { getI18nText } from '../utils/getI18nText';
+import { Locale } from '../i18n-config';
 
-export const getStaticProps = async ({ locale }: { locale: 'en' | 'fr' }) => {
+export const getStaticProps = async ({ locale }: { locale: Locale }) => {
   const allArticlesMetaData = getAllArticlesMetadata(locale);
   return {
     props: { allArticlesMetaData, locale },
@@ -17,7 +18,7 @@ export default function Blog({
   locale,
 }: {
   allArticlesMetaData: IArticleMetaData[];
-  locale: 'en' | 'fr';
+  locale: Locale;
 }) {
   return (
     <>
@@ -38,15 +39,15 @@ export default function Blog({
           property="og:description"
           content={getI18nText('blog_og_description', locale)}
         />
-        <meta property="og:image" content="/photo_linkedin.jpeg" />
+        <meta property="og:image" content="/images/photo_linkedin.jpeg" />
         <meta
           property="twitter:image"
-          content="https://www.marouanefaris.dev/photo_linkedin.jpeg"
+          content="https://www.marouanefaris.dev/images/photo_linkedin.jpeg"
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="https://www.marouanefaris.dev" />
         <meta name="twitter:creator" content="@MarouaneFaris1" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/images/favicon.png" type="image/png" />
       </Head>
       <Aside locale={locale} />
       <main>

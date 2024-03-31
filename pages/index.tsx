@@ -8,6 +8,7 @@ import markdownToHtml from '../utils/markdownToHtml';
 import PostBody from '../components/PostBody';
 import Footer from '../components/Footer';
 import { getI18nText } from '../utils/getI18nText';
+import { Locale } from '../i18n-config';
 
 const resumeFileName = 'about_me';
 
@@ -34,7 +35,7 @@ const Home = ({
   locale,
 }: {
   articleContent: string;
-  locale: 'en' | 'fr';
+  locale: Locale;
 }) => {
   return (
     <>
@@ -57,11 +58,11 @@ const Home = ({
         />
         <meta
           property="og:image"
-          content="https://www.marouanefaris.dev/photo_linkedin.jpeg"
+          content="https://www.marouanefaris.dev/images/photo_linkedin.jpeg"
         />
         <meta
           property="twitter:image"
-          content="https://www.marouanefaris.dev/photo_linkedin.jpeg"
+          content="https://www.marouanefaris.dev/images/photo_linkedin.jpeg"
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="https://www.marouanefaris.dev" />

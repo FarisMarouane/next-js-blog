@@ -13,9 +13,16 @@ const ToggleInput = ({ onChange, checked = false }: IToggleInputProps) => (
     checked={checked}
     icons={{
       checked: (
-        <Image src="/crescent.png" alt="cresent" width={16} height={16} />
+        <Image
+          src="/images/crescent.png"
+          alt="cresent"
+          width={16}
+          height={16}
+        />
       ),
-      unchecked: <Image src="/sun.png" alt="sun" width={16} height={16} />,
+      unchecked: (
+        <Image src="/images/sun.png" alt="sun" width={16} height={16} />
+      ),
     }}
     onChange={onChange}
   />

@@ -1,27 +1,28 @@
-import Head from "next/head";
-import dayjs from "dayjs";
-import { stripHtml } from "string-strip-html";
-import { Montserrat } from "next/font/google";
-import Image from "next/image";
+import Head from 'next/head';
+import dayjs from 'dayjs';
+import { stripHtml } from 'string-strip-html';
+import { Montserrat } from 'next/font/google';
+import Image from 'next/image';
 import {
   IFrontmatterType,
   getAllArticlesMetadata,
   getArticleFromSlug,
-} from "../../utils/mdx";
-import markdownToHtml from "../../utils/markdownToHtml";
-import PostBody from "../../components/PostBody";
-import styles from "../../styles/components/Article.module.scss";
+} from '../../utils/mdx';
+import markdownToHtml from '../../utils/markdownToHtml';
+import PostBody from '../../components/PostBody';
+import styles from '../../styles/components/Article.module.scss';
 import ArticleNavigation, {
   IArticleLink,
-} from "../../components/ArticleNavigation";
-import { useRouter } from "next/router";
-import { getI18nText } from "../../utils/getI18nText";
-import useSpeech from "../../hooks/useSpeech";
-import useIsChromiumBased from "../../hooks/useIsChromiumBased";
-import useIsMobile from "../../hooks/useIsMobile";
-import useIsMacOs from "../../hooks/useIsMacOs";
+} from '../../components/ArticleNavigation';
+import { useRouter } from 'next/router';
+import { getI18nText } from '../../utils/getI18nText';
+import useSpeech from '../../hooks/useSpeech';
+import useIsChromiumBased from '../../hooks/useIsChromiumBased';
+import useIsMobile from '../../hooks/useIsMobile';
+import useIsMacOs from '../../hooks/useIsMacOs';
+import { Locale } from '../../i18n-config';
 
-const font = Montserrat({ subsets: ["latin"], weight: "900" });
+const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
 interface IArticleContainerProps {
   articleContent: string | undefined;
@@ -42,7 +43,7 @@ export const getStaticProps = async ({
   locale,
 }: {
   params: { slug: string };
-  locale: "en" | "fr";
+  locale: Locale;
 }) => {
   const { slug } = params;
   const article = getArticleFromSlug(locale, slug);
@@ -74,8 +75,8 @@ export function getStaticPaths() {
   const articlesMetadata = getAllArticlesMetadata();
 
   return {
-    paths: [{ params: { slug: "react_server_components" }, locale: "en" }],
-    fallback: "blocking",
+    paths: [{ params: { slug: 'react_server_components' }, locale: 'en' }],
+    fallback: 'blocking',
   };
 }
 
@@ -105,7 +106,7 @@ const Article = ({
   const { id: currentArticleId } = frontmatter;
 
   const filteredArticlesMetadata = articlesMetadata.filter(
-    (a) => a.lang === locale
+    (a) => a.lang === locale,
   );
 
   const getLastModifiedDate = () => {
@@ -113,7 +114,7 @@ const Article = ({
       return (
         <span>
           &nbsp;&bull;&nbsp;
-          {`${getI18nText("blog_article_last_modified", locale as "en" | "fr")}:
+          {`${getI18nText('blog_article_last_modified', locale as Locale)}:
           ${frontmatter.lastModified}`}
         </span>
       );
@@ -143,7 +144,7 @@ const Article = ({
 
   const { toggleSpeaking, isSpeaking } = useSpeech(
     stripHtml(articleContent).result,
-    locale
+    locale,
   );
 
   const isMobile = useIsMobile();
@@ -167,11 +168,11 @@ const Article = ({
         <meta property="og:site_name" content="marouanefaris.dev" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${frontmatter.title}`} />
-        <meta property="og:image" content="/photo_linkedin.jpeg" />
+        <meta property="og:image" content="/images/photo_linkedin.jpeg" />
         <meta property="og:description" content={`${frontmatter.metaDesc}`} />
         <meta
           property="twitter:image"
-          content="https://www.marouanefaris.dev/photo_linkedin.jpeg"
+          content="https://www.marouanefaris.dev/images/photo_linkedin.jpeg"
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="https://www.marouanefaris.dev" />
@@ -181,7 +182,7 @@ const Article = ({
         <article>
           <header>
             <h1 className={font.className}>
-              {frontmatter.title}{" "}
+              {frontmatter.title}{' '}
               {!isMobile && issMacOs && isChromiumBrowser && (
                 <button
                   type="button"
@@ -189,15 +190,15 @@ const Article = ({
                   onClick={handleClick}
                 >
                   <span>
-                    {getI18nText("read_article_aloud", locale as "en" | "fr")}{" "}
+                    {getI18nText('read_article_aloud', locale as Locale)}{' '}
                   </span>
                   <Image
                     src={
                       isSpeaking
-                        ? "/sound_off_icon_black.png"
-                        : "/sound_on_icon_black.png"
+                        ? '/images/sound_off_icon_black.png'
+                        : '/images/sound_on_icon_black.png'
                     }
-                    alt="cresent"
+                    alt="sound_icon"
                     width={16}
                     height={16}
                   />
@@ -205,7 +206,7 @@ const Article = ({
               )}
             </h1>
             <small className={styles.small}>
-              {dayjs(frontmatter.date).format("MMMM D, YYYY")}
+              {dayjs(frontmatter.date).format('MMMM D, YYYY')}
               &nbsp;&bull;&nbsp;
               {frontmatter.readingTime}
               {getLastModifiedDate()}

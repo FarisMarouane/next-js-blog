@@ -1,29 +1,29 @@
-import Script from "next/script";
-import { Merriweather } from "next/font/google";
-import { AppProps } from "next/app";
-import Head from "next/head";
-import ContextProvider from "../components/ContextProvider";
-import Layout from "../components/Layout";
-import ErrorBoundary from "../components/ErrorBoundary";
-import "../styles/globals.css";
-import "../styles/components/Toggle.css";
-import { useEffect } from "react";
+import Script from 'next/script';
+import { Merriweather } from 'next/font/google';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import ContextProvider from '../components/ContextProvider';
+import Layout from '../components/Layout';
+import ErrorBoundary from '../components/ErrorBoundary';
+import '../styles/globals.css';
+import '../styles/components/Toggle.css';
+import { useEffect } from 'react';
 
-const font = Merriweather({ subsets: ["latin"], weight: "400" });
+const font = Merriweather({ subsets: ['latin'], weight: '400' });
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if ("serviceWorker" in navigator) {
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register("/sw.js")
+        .register('/sw.js')
         .then((serviceWorker) => {
-          if (process.env.NODE_ENV === "production") return;
+          if (process.env.NODE_ENV === 'production') return;
           // eslint-disable-next-line no-console
-          console.log("Service Worker registered: ", serviceWorker);
+          console.log('Service Worker registered: ', serviceWorker);
         })
         .catch((error) => {
-          if (process.env.NODE_ENV === "production") return;
-          console.error("Error registering the Service Worker: ", error);
+          if (process.env.NODE_ENV === 'production') return;
+          console.error('Error registering the Service Worker: ', error);
         });
     }
   }, []);
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Marouane Faris</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="light dark" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/images/favicon.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <ContextProvider>
