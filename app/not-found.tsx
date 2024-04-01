@@ -5,7 +5,7 @@ import { Locale } from '../i18n-config';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
-export default function Custom404() {
+export default function NotFound() {
   const locale = 'en';
   return (
     <div className={`${style['not-found-error-page']} ${font.className}`}>

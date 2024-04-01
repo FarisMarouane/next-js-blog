@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import '../styles/components/Toggle.css';
 import Layout from '../components/Layout';
 import ContextProvider from '../components/ContextProvider';
+import { Locale } from '../i18n-config';
 
 export const viewport: Viewport = {
   colorScheme: 'light dark',
@@ -18,11 +19,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode;
+  params: { lang: Locale };
 }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body>
         <ContextProvider>
           <Layout>{children}</Layout>

@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@types/react-toggle": "^4.0.3",
     "dayjs": "^1.11.7",
     "eslint": "8.31.0",
     "gray-matter": "^4.0.3",
+    "negotiator": "^0.6.3",
     "next": "^14.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,6 +25,7 @@
     "string-strip-html": "^13.4.6"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.3",
     "@types/node": "18.11.18",
     "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.23",
