@@ -1,43 +1,36 @@
 import Head from 'next/head';
-import Aside from '../components/Aside';
-import Footer from '../components/Footer';
-import { IArticleMetaData, getAllArticlesMetadata } from '../utils/mdx';
-import ArticlePreview from '../components/ArticlePreview';
-import { getI18nText } from '../utils/getI18nText';
-import { Locale } from '../i18n-config';
-
-export const getStaticProps = async ({ locale }: { locale: Locale }) => {
-  const allArticlesMetaData = getAllArticlesMetadata(locale);
-  return {
-    props: { allArticlesMetaData, locale },
-  };
-};
+import Aside from '../../../components/Aside';
+import Footer from '../../../components/Footer';
+import { getAllArticlesMetadata } from '../../../utils/mdx';
+import ArticlePreview from '../../../components/ArticlePreview';
+import { getI18nText } from '../../../utils/getI18nText';
+import { Locale } from '../../../i18n-config';
 
 export default function Blog({
-  allArticlesMetaData,
-  locale,
+  params: { lang },
 }: {
-  allArticlesMetaData: IArticleMetaData[];
-  locale: Locale;
+  params: { lang: Locale };
 }) {
+  const allArticlesMetaData = getAllArticlesMetadata(lang);
+
   return (
     <>
       <Head>
         <meta name="author" content="Marouane Faris" />
         <meta
           name="description"
-          content={getI18nText('blog_meta_description', locale)}
+          content={getI18nText('blog_meta_description', lang)}
         />
         <meta property="og:url" content="https://www.marouanefaris.dev/blog" />
         <meta property="og:site_name" content="marouanefaris.dev" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content={getI18nText('blog_og_title', locale)}
+          content={getI18nText('blog_og_title', lang)}
         />
         <meta
           property="og:description"
-          content={getI18nText('blog_og_description', locale)}
+          content={getI18nText('blog_og_description', lang)}
         />
         <meta property="og:image" content="/images/photo_linkedin.jpeg" />
         <meta
@@ -49,7 +42,7 @@ export default function Blog({
         <meta name="twitter:creator" content="@MarouaneFaris1" />
         <link rel="icon" href="/images/favicon.png" type="image/png" />
       </Head>
-      <Aside locale={locale} />
+      <Aside locale={lang} />
       <main>
         {allArticlesMetaData
           .sort((a, b) => {
@@ -67,7 +60,7 @@ export default function Blog({
             />
           ))}
       </main>
-      <Footer locale={locale} />
+      <Footer locale={lang} />
     </>
   );
 }

@@ -10,7 +10,7 @@ const Footer = ({ locale }: { locale: Locale }) => {
   const pathname = usePathname();
   let route;
 
-  if (pathname === '/blog') {
+  if (pathname?.includes('/blog')) {
     route = { name: getI18nText('footer_about_me', locale), path: '/' };
   } else {
     route = { name: 'Blog', path: '/blog' };
