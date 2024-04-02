@@ -1,10 +1,10 @@
 ---
 id: 2
 title: "C'est quoi une PWA ?"
-lang: "fr"
-date: "2023-03-28"
-metaTitle: "Progressive Web App"
-metaDesc: "Que sont les PWAs et peuvent-elles remplacer les apps mobiles ?"
+lang: 'fr'
+date: '2023-03-28'
+metaTitle: 'Progressive Web App'
+metaDesc: 'Que sont les PWAs et peuvent-elles remplacer les apps mobiles ?'
 ---
 
 Une Progressive Web App (PWA), dont ce site est un exemple ^^, est tout simplement un site web qui, grâce à quelques modifications simples, se comporte en tout point ou presque comme une application native (desktop, iOS ou Android).

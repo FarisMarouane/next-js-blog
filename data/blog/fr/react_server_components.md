@@ -1,10 +1,10 @@
 ---
 id: 1
-title: "Exploration du Next JS app directory et des React Server Components"
-lang: "fr"
+title: 'Exploration du Next JS app directory et des React Server Components'
+lang: 'fr'
 date: '2023-07-03'
 lastModified: '2023-07-11'
-metaTitle: "React Server Components"
+metaTitle: 'React Server Components'
 metaDesc: "Qu'est-ce que les composants serveur React et comment pouvons-nous les utiliser pour améliorer nos applications React ?"
 ---
 
@@ -12,7 +12,7 @@ Comme je m'ennuyais ces derniers temps, j'ai décidé de jeter un coup d'oeil su
 
 Mais tout d'abord, en quoi consistent les React Server Components (RSCs) ?
 
-Selon l'équipe  de React, dans un article de [blog](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components), les composants serveur React "...s'exécutent en avance et sont **exclus de votre bundle JavaScript**. Les Server Components peuvent s'exécuter pendant la phase de build, ce qui vous permet de lire à partir du système de fichiers ou de récupérer du contenu statique. Ils peuvent également s'exécuter sur le serveur, ce qui vous permet d'accéder à votre couche de données sans avoir à créer une API. Vous pouvez transmettre des données via des props depuis les Server Components vers les composants interactifs Client dans le navigateur."
+Selon l'équipe de React, dans un article de [blog](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components), les composants serveur React "...s'exécutent en avance et sont **exclus de votre bundle JavaScript**. Les Server Components peuvent s'exécuter pendant la phase de build, ce qui vous permet de lire à partir du système de fichiers ou de récupérer du contenu statique. Ils peuvent également s'exécuter sur le serveur, ce qui vous permet d'accéder à votre couche de données sans avoir à créer une API. Vous pouvez transmettre des données via des props depuis les Server Components vers les composants interactifs Client dans le navigateur."
 
 Voici un exemple d'un RSC dans le contexte d'une application Next JS (utilisant le nouveau répertoire "app") :
 
@@ -20,7 +20,7 @@ Voici un exemple d'un RSC dans le contexte d'une application Next JS (utilisant 
 export default async function Page() {
   const DB = new Client();
   {/* Direct access to the database from inside the component, without going through an API call*/}
-  const articleContent = await DB.getArticleContent(); 
+  const articleContent = await DB.getArticleContent();
   return <Article articleContent={articleContent} />;
 }
 ```
@@ -72,6 +72,7 @@ const Article = ({ articleContent }: { articleContent: string }) => {
 
 export default Article;
 ```
+
 &nbsp;
 
 Personnellement, j'ai refondu mon blog (celui que vous visitez en ce moment !) vers le nouveau répertoire "app" Next JS, où tous les composants React sont des RSC par défaut. Vous pouvez visiter la version qui utilise le répertoire d'application à ce [lien](https://staging.marouanefaris.dev/), et je dois dire que je n'ai pas remarqué d'avantages tangibles.
@@ -100,4 +101,4 @@ Si vous êtes intéressé d'en en savoir plus sur les RSCs (React Server Compone
 - Vous pouvez également lire cet article de freecodecamp pour avoir une vue d'ensemble rapide des RSCs : [How to Use React Server Components – A Beginner's Guide](https://www.freecodecamp.org/news/react-server-components-for-beginners/)
 
 - Une RFC (request for comments) rédigée par Lenz Weber-Tronic (phryneas), un développeur senior chez Apollo GraphQL et co-mainteneur de Redux Toolkit : [The Next.js "App Router", React Server Component & "SSR with Suspense" story
-](https://github.com/apollographql/apollo-client-nextjs/blob/pr/RFC-2/RFC.md)
+  ](https://github.com/apollographql/apollo-client-nextjs/blob/pr/RFC-2/RFC.md)

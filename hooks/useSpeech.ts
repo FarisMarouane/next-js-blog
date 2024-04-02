@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from 'react';
 
 const useSpeech = (text: string, locale: string | undefined) => {
   const [speak, setSpeak] = useState(false);
@@ -11,17 +11,17 @@ const useSpeech = (text: string, locale: string | undefined) => {
 
     if (!speechSynthesis) {
       // eslint-disable-next-line no-console
-      console.log("Text-to-speech not supported.");
+      console.log('Text-to-speech not supported.');
       return;
     }
 
     utteranceRef.current = new SpeechSynthesisUtterance(text);
-    utteranceRef.current.lang = locale === "fr" ? "fr-FR" : "en-US";
+    utteranceRef.current.lang = locale === 'fr' ? 'fr-FR' : 'en-US';
 
     // Detect change in locale/language
     if (
-      (locale === "fr" && localeRef.current !== "fr") ||
-      (locale === "en" && localeRef.current !== "en")
+      (locale === 'fr' && localeRef.current !== 'fr') ||
+      (locale === 'en' && localeRef.current !== 'en')
     ) {
       localeRef.current = locale;
 

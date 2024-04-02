@@ -17,7 +17,7 @@ body {
   --primary: #222;
   --secondary: rgb(108, 108, 108);
   --border: rgb(238, 238, 238);
-  --textLink: #00598F;
+  --textLink: #00598f;
   --articlePreviewBg: rgb(255, 255, 255);
   --textTitle: var(--primary);
   --articlePreviewBoxShadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
