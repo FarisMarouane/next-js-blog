@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState, useRef } from 'react';
 
 const useSpeech = (text: string, locale: string | undefined) => {

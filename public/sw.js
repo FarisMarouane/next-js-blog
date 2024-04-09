@@ -13,7 +13,6 @@ async function cache(request, response) {
     const cache = await caches.open(CACHE_NAME);
     return await cache.put(request, response.clone());
   } catch (error) {
-    if (process.env.NODE_ENV === 'production') return;
     console.error(`Error caching ${request.url}: ${error}`);
   }
 }
@@ -48,7 +47,6 @@ self.addEventListener('fetch', (event) => {
         await cache(event.request, fetchResponse);
         return fetchResponse;
       } catch (error) {
-        if (process.env.NODE_ENV === 'production') return;
         // No internet connection or fetch error => Response with cached ressource if it exists
         console.error('Error fetching the request', event.request.url);
 

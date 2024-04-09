@@ -1,17 +1,24 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import styles from '../styles/components/Footer.module.scss';
-import { getI18nText } from '../utils/getI18nText';
 import { Locale } from '../i18n-config';
+import { Link, usePathname } from '../src/navigation';
 
-const Footer = ({ locale }: { locale: Locale }) => {
+const Footer = ({
+  locale,
+  footerTranslation,
+}: {
+  locale: Locale;
+  footerTranslation: string;
+}) => {
   const pathname = usePathname();
   let route;
 
   if (pathname?.includes('/blog')) {
-    route = { name: getI18nText('footer_about_me', locale), path: '/' };
+    route = {
+      name: footerTranslation,
+      path: '/',
+    };
   } else {
     route = { name: 'Blog', path: '/blog' };
   }

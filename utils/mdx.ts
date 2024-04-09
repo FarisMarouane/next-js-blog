@@ -7,14 +7,12 @@ import { Locale } from '../i18n-config';
 // This type is almost useless because of [key: string]: string | number | undefined;
 export interface IFrontmatterType {
   id: number;
-  date: string;
-  lang: Locale;
-  lastModified?: string;
   title: string;
+  lang: Locale;
+  date: string;
+  lastModified?: string;
   metatitle: string;
   metaDesc: string;
-  socialImage?: string;
-  [key: string]: string | number | undefined;
 }
 
 export interface IArticleMetaData extends IFrontmatterType {
@@ -24,7 +22,7 @@ export interface IArticleMetaData extends IFrontmatterType {
 
 interface IArticle {
   content: string;
-  frontmatter: Omit<IArticleMetaData, 'id' | 'metatitle'>;
+  frontmatter: Omit<IArticleMetaData, 'metatitle' | 'lang'>;
 }
 
 const articlesPath = path.join(process.cwd(), 'data/blog');
@@ -53,6 +51,7 @@ export function getArticleFromSlug(
       title: data.title,
       date: data.date,
       readingTime: readingTime(source.toString()).text,
+      id: data.id,
       ...data,
     },
   };

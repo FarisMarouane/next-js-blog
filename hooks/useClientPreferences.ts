@@ -1,10 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useLayoutEffect } from 'react';
 import { ThemeContext, ThemeType } from '../components/ContextProvider';
 
 const useClientPreferences = () => {
   const { setTheme } = useContext(ThemeContext);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const localStorageTheme = window.localStorage.getItem(
       'color-scheme',
     ) as ThemeType | null;

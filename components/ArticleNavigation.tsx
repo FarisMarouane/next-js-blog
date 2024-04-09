@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { ReactNode } from 'react';
 import styles from '../styles/components/ArticleNavigation.module.css';
+import { Link } from '../src/navigation';
 
 export interface IArticleLink {
   path: string;

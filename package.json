@@ -9,13 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.5.4",
     "@types/react-toggle": "^4.0.3",
     "dayjs": "^1.11.7",
     "eslint": "8.31.0",
     "gray-matter": "^4.0.3",
-    "negotiator": "^0.6.3",
     "next": "^14.1.4",
+    "next-intl": "^3.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-toggle": "FarisMarouane/react-toggle-with-label#master",
@@ -25,15 +24,14 @@
     "string-strip-html": "^13.4.6"
   },
   "devDependencies": {
-    "@types/negotiator": "^0.6.3",
     "@types/node": "18.11.18",
-    "@types/react": "^18.2.73",
+    "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.23",
     "@types/react-toggle": "^4.0.3",
     "eslint-config-next": "^14.1.4",
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-prettier": "^5.1.3",
     "sass": "^1.57.1",
-    "typescript": "^4.9.4"
+    "typescript": "^5.1.3"
   }
 }

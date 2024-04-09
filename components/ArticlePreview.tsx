@@ -1,6 +1,7 @@
-import Link from 'next/link';
 import { Montserrat } from 'next/font/google';
 import styles from '../styles/components/ArticlePreview.module.css';
+import { Locale } from '../i18n-config';
+import { Link } from '../src/navigation';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
 
@@ -10,6 +11,7 @@ interface IArticlePreviewProps {
   readingTime: string;
   description: string;
   slug: string;
+  locale: Locale;
 }
 
 const ArticlePreview = ({
@@ -18,6 +20,7 @@ const ArticlePreview = ({
   readingTime,
   description,
   slug,
+  locale,
 }: IArticlePreviewProps) => {
   return (
     <article className={styles.article}>
