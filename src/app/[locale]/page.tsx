@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
@@ -8,7 +9,6 @@ import markdownToHtml from '../../../utils/markdownToHtml';
 import PostBody from '../../../components/PostBody';
 import Footer from '../../../components/Footer';
 import { Locale } from '../../../i18n-config';
-import { Metadata } from 'next';
 
 const resumeFileName = 'about_me';
 
