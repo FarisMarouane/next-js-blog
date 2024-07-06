@@ -30,4 +30,4 @@ Avant tout, j'aime relever des défis techniques en utilisant mes compétences.
 
 N'hésitez pas à me contacter à travers mes comptes ci-dessous !
 
-[Profil LinkedIn](https://www.linkedin.com/in/marouane-faris-1514b970/) &emsp; [Profil Malt](https://www.malt.fr/profile/marouanefaris) &emsp; [Compte Github](https://github.com/FarisMarouane)
+[Profil LinkedIn](https://www.linkedin.com/in/marouane-faris-1514b970/) &emsp; [Profil Malt](https://www.malt.fr/profile/marouanefaris) &emsp; [Compte Github](https://github.com/FarisMarouane) &emsp;  [CV](./Marouane_Faris_Expert_Next_JS__React_JS.pdf)
