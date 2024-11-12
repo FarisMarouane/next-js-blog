@@ -32,6 +32,10 @@ body {
   font-size: 100%;
 }
 
+body:not(.body-visible) {
+  visibility: hidden;
+}
+
 body.dark {
   --bg: rgb(29, 30, 32);
   --primary: hsla(0, 0%, 100%, 0.88);
