@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import dayjs from 'dayjs';
-import { stripHtml } from 'string-strip-html';
+// import { stripHtml } from 'string-strip-html';
 import { Montserrat } from 'next/font/google';
-import Image from 'next/image';
+// import Image from 'next/image';
 import {
   IFrontmatterType,
   getAllArticlesMetadata,
@@ -16,10 +16,10 @@ import ArticleNavigation, {
 } from '../../components/ArticleNavigation';
 import { useRouter } from 'next/router';
 import { getI18nText } from '../../utils/getI18nText';
-import useSpeech from '../../hooks/useSpeech';
-import useIsChromiumBased from '../../hooks/useIsChromiumBased';
-import useIsMobile from '../../hooks/useIsMobile';
-import useIsMacOs from '../../hooks/useIsMacOs';
+// import useSpeech from '../../hooks/useSpeech';
+// import useIsChromiumBased from '../../hooks/useIsChromiumBased';
+// import useIsMobile from '../../hooks/useIsMobile';
+// import useIsMacOs from '../../hooks/useIsMacOs';
 import { Locale } from '../../i18n-config';
 
 const font = Montserrat({ subsets: ['latin'], weight: '900' });
@@ -142,18 +142,18 @@ const Article = ({
     }
   }
 
-  const { toggleSpeaking, isSpeaking } = useSpeech(
-    stripHtml(articleContent).result,
-    locale,
-  );
+  // const { toggleSpeaking, isSpeaking } = useSpeech(
+  //   stripHtml(articleContent).result,
+  //   locale,
+  // );
 
-  const isMobile = useIsMobile();
-  const issMacOs = useIsMacOs();
-  const isChromiumBrowser = useIsChromiumBased();
+  // const isMobile = useIsMobile();
+  // const issMacOs = useIsMacOs();
+  // const isChromiumBrowser = useIsChromiumBased();
 
-  const handleClick = () => {
-    toggleSpeaking();
-  };
+  // const handleClick = () => {
+  //   toggleSpeaking();
+  // };
 
   return (
     <>
@@ -183,7 +183,8 @@ const Article = ({
           <header>
             <h1 className={font.className}>
               {frontmatter.title}{' '}
-              {!isMobile && issMacOs && isChromiumBrowser && (
+              {/* Supense this feature, it doesn't work reliably */}
+              {/* {!isMobile && issMacOs && isChromiumBrowser && (
                 <button
                   type="button"
                   className={styles.read_article_button}
@@ -203,7 +204,7 @@ const Article = ({
                     height={16}
                   />
                 </button>
-              )}
+              )} */}
             </h1>
             <small className={styles.small}>
               {dayjs(frontmatter.date).format('MMMM D, YYYY')}
