@@ -1,6 +1,6 @@
 # Marouane Faris - Expert en React JS
 
-Bonjour, je m'appelle Marouane et je suis un développeur Fullstack Javascript, spécialisé sur **Next JS** et **React JS**, avec plus de 6 ans d'expérience dans le développement web.
+Bonjour, je m'appelle Marouane et je suis un développeur Fullstack Javascript, spécialisé sur **Next JS** et **React JS**, avec plus de 7 ans d'expérience dans le développement web.
 
 Avant tout, j'aime relever des défis techniques en utilisant mes compétences.
 
@@ -10,15 +10,15 @@ Avant tout, j'aime relever des défis techniques en utilisant mes compétences.
 
 - Next JS (utilisé pour faire ce blog !)
 - React JS (y compris bien sûr les dernières versions qui utilisent les Hooks et d'autres fonctionnalités intéressantes)
-- Svelte JS (Vous pouvez consulter une version Svelte de ce blog sur [svelte.marouanefaris.dev](https://svelte.marouanefaris.dev/))
+- Svelte JS (Vous pouvez consulter une version Svelte de ce blog sur [svelte.marouanefaris.dev](https://svelte.marouanefaris.dev/)), mais j'avoue ça fait un moment que je n'ai pas travaillé dessus 😛
 - Typescript
-- GraphQL
 - Redux
 - Redux-thunk
 - RxJS/Redux-Observables
 - Vanilla JS (À jour avec les principales nouveautés de la norme ECMAScript depuis 2015)
 - CSS-in-JS (j'ai déjà travaillé avec les bibliothèques Styled-components et emotion)
 - Modules CSS
+- Tailwind
 - SCSS
 - CSS classique
 - Storybook
