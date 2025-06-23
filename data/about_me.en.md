@@ -1,10 +1,10 @@
 # Marouane Faris - React JS Expert
 
-Hello There, my name is Marouane and I am a Fullstack JS developer specializing in **Next JS** and **React JS** with over 7 years of experience in web developement.
+Hello there, my name is Marouane and I am a Fullstack JS developer specializing in **Next JS**, **React JS** and **Node JS** with 8 years of experience in web developement.
 
-Above everything else, I like tackling challenging technical problems using my coding abilites.
+Above everything else, I like tackling challenging technical problems using my coding abilities.
 
-I also like working with inspiring colleagues that help me grow as a software engineer.
+I also like working with inspiring colleagues who help me grow as a software engineer.
 
 ---
 
@@ -26,6 +26,7 @@ I also like working with inspiring colleagues that help me grow as a software en
 - Vanilla CSS
 - Storybook
 - Node JS
+- Express
 - Docker
 
 &nbsp;

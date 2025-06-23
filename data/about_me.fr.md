@@ -1,6 +1,6 @@
 # Marouane Faris - Expert en React JS
 
-Bonjour, je m'appelle Marouane et je suis un développeur Fullstack Javascript, spécialisé sur **Next JS** et **React JS**, avec plus de 7 ans d'expérience dans le développement web.
+Bonjour, je m'appelle Marouane et je suis un développeur Fullstack Javascript, spécialisé sur **Next JS**, **React JS** et **Node JS**, avec plus 8 ans d'expérience dans le développement web.
 
 Avant tout, j'aime relever des défis techniques en utilisant mes compétences.
 
