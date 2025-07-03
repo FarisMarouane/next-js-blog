@@ -33,4 +33,4 @@ I also like working with inspiring colleagues who help me grow as a software eng
 
 Feel free to contact me through my accounts below !
 
-[Linkedin Profile](https://www.linkedin.com/in/marouane-faris-1514b970/) &emsp; [Malt Profil](https://www.malt.fr/profile/marouanefaris) &emsp; [Github Profile](https://github.com/FarisMarouane) &emsp;  [Resume](./Marouane_Faris_resume.pdf)
+[Linkedin Profile](https://www.linkedin.com/in/marouane-faris-%F0%9F%92%A1-1514b970/) &emsp; [Malt Profil](https://www.malt.fr/profile/marouanefaris) &emsp; [Github Profile](https://github.com/FarisMarouane) &emsp;  [Resume](./Marouane_Faris_resume.pdf)
