@@ -12,7 +12,7 @@ I also like working with inspiring colleagues who help me grow as a software eng
 
 - Next JS (used to build this blog !)
 - React JS (including of course the latest versions that use Hooks and other cool stuff)
-- Svelte JS (You can check a svelte version of this blog at [svelte.marouanefaris.dev](https://svelte.marouanefaris.dev/)), although it has been a while since I last worked with Svelte 😛
+- Svelte JS, although it has been a while since I last worked with Svelte 😛
 - Typescript
 - GraphQL
 - Redux

@@ -10,7 +10,7 @@ Avant tout, j'aime relever des défis techniques en utilisant mes compétences.
 
 - Next JS (utilisé pour faire ce blog !)
 - React JS (y compris bien sûr les dernières versions qui utilisent les Hooks et d'autres fonctionnalités intéressantes)
-- Svelte JS (Vous pouvez consulter une version Svelte de ce blog sur [svelte.marouanefaris.dev](https://svelte.marouanefaris.dev/)), mais j'avoue ça fait un moment que je n'ai pas travaillé dessus 😛
+- Svelte JS, mais j'avoue ça fait un moment que je n'ai pas travaillé avec 😛
 - Typescript
 - Redux
 - Redux-thunk
